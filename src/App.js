@@ -5,13 +5,13 @@ import MainPage from 'pages/MainPage/MainPage'
 
 function App() {
   return (
-      <Router>
-          <div className="App">
-              <Switch>
-                  <Route path="/" exact component={MainPage}/>
-              </Switch>
-          </div>
-      </Router>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={MainPage}/>
+        </Switch>
+        </div>
+    </Router>
   );
 }
 
