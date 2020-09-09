@@ -1,18 +1,19 @@
-import React from 'react';
-import classes from './App.module.css';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import MainPage from 'pages/MainPage/MainPage'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MainPage from './pages/MainPage/MainPage';
 
-function App() {
-  return (
+class App extends Component {
+  render() {
+    return (
       <Router>
-          <div className="App">
-              <Switch>
-                  <Route path="/" exact component={MainPage}/>
-              </Switch>
-          </div>
+        <div className="App">
+          <Switch>
+            <Route path="/" exact component={MainPage} />
+          </Switch>
+        </div>
       </Router>
-  );
+    );
+  }
 }
 
 export default App;
