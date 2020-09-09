@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header__group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
