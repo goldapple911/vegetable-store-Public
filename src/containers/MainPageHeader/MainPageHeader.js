@@ -10,7 +10,6 @@ import classes from './MainPageHeader.module.css'
 export default (props) => {
   return (
     <div className={classes.header}>
-      header
       <Navigation/>
       <HeaderSlider/>
       <div className={classes.header__group}>

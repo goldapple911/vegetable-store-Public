@@ -1,0 +1,13 @@
+.MainPageContent {
+  background-color: #fff;
+}
+
+.generator__container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 250px 0;
+  border-radius: 20px;
+  background-color: #ee738d;
+
+  text-align: center;
+}

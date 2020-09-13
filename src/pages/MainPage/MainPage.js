@@ -7,7 +7,6 @@ import Footer from '../../components/Footer/Footer';
 export default () => {
   return (
     <div>
-      mainPage Component
       <MainPageHeader />
       <MainPageContent />
       <MainPageWidgets />
