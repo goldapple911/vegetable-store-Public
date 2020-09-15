@@ -10,12 +10,14 @@ import classes from './MainPageHeader.module.css'
 export default (props) => {
   return (
     <div className={classes.header}>
-      <Navigation/>
-      <HeaderSlider/>
-      <div className={classes.header__group}>
-        <CartIcon/>
-        <LinkButton/>
-        <PromoItems/>
+      <div className={`container`}>
+        <Navigation/>
+        <HeaderSlider/>
+        <div className={classes.header__group}>
+          <CartIcon/>
+          <LinkButton/>
+          <PromoItems/>
+        </div>
       </div>
     </div>
   );
