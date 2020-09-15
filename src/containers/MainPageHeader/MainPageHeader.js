@@ -11,8 +11,10 @@ export default (props) => {
   return (
     <div className={classes.header}>
       <div className={`container`}>
-        <Navigation/>
-        <HeaderSlider/>
+        <div className={classes.header__group}>
+          <Navigation/>
+          <HeaderSlider/>
+        </div>
         <div className={classes.header__group}>
           <CartIcon/>
           <LinkButton/>

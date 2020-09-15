@@ -1,4 +1,30 @@
-.swiper__slide {
-    width: 728px;
-    height: 878px;
+.slider {
+    width: 528px;
+    height: 636px;
+}
+
+.slider__item {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 20px 0;
+}
+
+.slider__text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 52px;
+    color: #FFFFFF;
+
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 26px 26px 0 26px;
+}
+
+.slider__logo {
+    position: absolute;
+    left: 26px;
+    bottom: 156px;
 }
