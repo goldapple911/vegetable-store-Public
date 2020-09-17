@@ -1,0 +1,57 @@
+.navigation {
+    width: 32px;
+    height: 32px;
+    margin: 30px 17px 0;
+    position: relative;
+}
+
+.navigation__window {
+    height: 633px;
+    top: -30px;
+    left: -17px;
+    background: #F7C3D5;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.navigation__open {
+    width: 386px;
+    opacity: 1;
+    transition: all 0.4s;
+}
+
+.navigation__close {
+    width: 0;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.navigation__cross {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.navigation__list {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    left: 66px;
+    top: 118px;
+}
+
+.navigation__link {
+    text-decoration: none;
+}
+
+.navigation__text {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+}
