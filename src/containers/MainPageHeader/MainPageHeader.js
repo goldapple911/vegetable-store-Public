@@ -17,6 +17,7 @@ export default (props) => {
             <HeaderSlider/>
           </div>
           <div className={classes.header__column}>
+            <span className={classes.header__vegan}>Vegan</span>
             <CartIcon/>
             <LinkButton background={'#F7C3D5'} text={'Каталог'}/>
             <PromoItems/>

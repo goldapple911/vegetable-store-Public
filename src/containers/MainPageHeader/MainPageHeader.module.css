@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background: linear-gradient(to bottom, #FFFFFF 55%, #FEE8C5 45%);
+    background: linear-gradient(to bottom, #FFFFFF 634px, #FEE8C5 45%);
+    padding-bottom: 25px;
 }
 
 .header__holder {
@@ -21,4 +22,19 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.header__vegan {
+    font-family: Roboto, sans-serif;
+    position: absolute;
+    top: 634px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 470px;
+    line-height: 302px;
+    text-transform: uppercase;
+    color: #FDCF7D;
+    margin: 0 -750px;
+    z-index: 0;
+    left: 50%;
 }
