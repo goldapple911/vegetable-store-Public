@@ -1,0 +1,98 @@
+.promo {
+    list-style: none;
+    font-family: Roboto, sans-serif;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.promo__item {
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.promo__cover {
+    border-radius: 20px;
+    display: block;
+    width: 370px;
+    height: 258px;
+    background: #E9ECFF;
+}
+
+.promo__link {
+    display: block;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.promo__link:hover {
+    margin-left: -26px;
+}
+
+.promo__description {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+    margin-bottom: 8px;
+}
+
+.promo__name {
+    width: 245px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #1B1B1B;
+}
+
+.promo__price {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: #1B1B1B;
+}
+
+.promo__volume {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1B1B1B;
+}
+
+.promo__buy {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 12px 5px 5px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1B1B1B;
+    transition: all 0.2s;
+}
+
+.promo__link:hover .promo__buy {
+    right: 38px;
+}
+
+.promo__icon {
+    padding: 7px 8px;
+    background: #FFFFFF;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 13px;
+}

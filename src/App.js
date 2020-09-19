@@ -7,6 +7,11 @@ class App extends Component {
 
   state = {
     navigationClosed: true,
+    currentPromo: [
+      {name: 'Чистящая паста для посуды и сантехники', price: 250, volume: '250 мл', cover: 'plumbing_paste.jpg'},
+      {name: 'Твердый бальзам', price: 230, volume: '18 гр', cover: 'hard_balm.jpg'},
+      {name: 'Твердый шампунь', price: 320, volume: '40 гр', cover: 'hard_shampoo.jpg'},
+    ]
   }
 
   toggleNavigation = () => {
@@ -23,6 +28,7 @@ class App extends Component {
             <MainPageContext.Provider
               value={{
                 navigationClosed: this.state.navigationClosed,
+                currentPromo: this.state.currentPromo,
                 toggleNavigation: this.toggleNavigation,
               }}
             >
@@ -31,7 +37,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
-    );
+    )
   }
 }
 
