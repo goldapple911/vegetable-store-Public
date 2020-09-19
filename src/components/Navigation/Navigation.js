@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import classes from "./Navigation.module.css";
-import MainPageContext from '../../pages/MainPage/MainPageContext'
-import cn from 'classnames'
+import MainPageContext from '../../pages/MainPage/MainPageContext';
+import cn from 'classnames';
 
 
 export default (props) => {

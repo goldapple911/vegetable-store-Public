@@ -1,0 +1,17 @@
+.link {
+    padding: 16px 117px;
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    color: #1B1B1B;
+    border-radius: 18px;
+    transition: all 0.3s;
+}
+
+.link:hover {
+    background: #EE738D !important;
+    color: #FFFFFF;
+}
