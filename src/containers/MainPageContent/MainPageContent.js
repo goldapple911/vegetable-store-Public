@@ -7,6 +7,11 @@ import LinkButton from '../../components/LinkButton/LinkButton';
 import TeamInfo from '../../components/TeamInfo/TeamInfo';
 import { Link } from 'react-router-dom';
 
+const buttonStyles = {
+  backgroundColor: '#fdcf7d',
+  margin: '10px auto',
+}
+
 const mainPageContent = () => {
   return (
     <main className={`container ${classes.MainPageContent}`}>
@@ -14,7 +19,7 @@ const mainPageContent = () => {
         Заглушка для генератора подарков
       </div>
       
-      <LinkButton title='Перейти в каталог' />
+      <LinkButton background={'#FDCF7D'} className={classes.link_button} title='Перейти в каталог' text={'Перейти в каталог'} />
 
 
     </main>

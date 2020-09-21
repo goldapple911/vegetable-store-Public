@@ -11,3 +11,8 @@
 
   text-align: center;
 }
+
+.link_button {
+  display: block;
+  background-color: #fdcf7d;
+}
