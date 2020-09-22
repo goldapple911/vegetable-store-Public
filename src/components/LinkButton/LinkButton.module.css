@@ -8,10 +8,5 @@
     line-height: 42px;
     color: #1B1B1B;
     border-radius: 18px;
-    transition: all 0.3s;
-}
-
-.link:hover {
-    background: #EE738D !important;
-    color: #FFFFFF;
+    transition: all 0.3s
 }

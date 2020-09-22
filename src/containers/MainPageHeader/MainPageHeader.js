@@ -35,7 +35,7 @@ export default (props) => {
               <span className={classes.header__vegan}>Vegan</span>
             </div>
             <CartIcon/>
-            <LinkButton background={'#F7C3D5'} text={'Каталог'}/>
+            <LinkButton className={classes.header__link} text={'Каталог'}/>
             <PromoItems/>
           </div>
         </div>
