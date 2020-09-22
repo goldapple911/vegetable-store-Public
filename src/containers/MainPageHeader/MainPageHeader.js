@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import HeaderSlider from '../../components/HeaderSlider/HeaderSlider';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import PromoItems from '../../components/PromoItems/PromoItems';
+import MainPageContext from "../../pages/MainPage/MainPageContext";
 
 import classes from './MainPageHeader.module.css'
 
+
 export default (props) => {
+
+  const headerContext = useContext(MainPageContext);
+
+  useEffect(() => {
+    window.addEventListener('scroll', headerContext.rotateHeaderCircle);
+  });
+
   return (
     <div className={classes.header}>
       <div className={'container'}>
@@ -17,7 +26,14 @@ export default (props) => {
             <HeaderSlider/>
           </div>
           <div className={classes.header__column}>
-            <span className={classes.header__vegan}>Vegan</span>
+            <div className={classes.header__title}>
+              <img className={classes.header__circle}
+                   style={{transform: `rotate(${headerContext.headerCircleRotation}deg)`}}
+                   src={require('../../images/backgrounds/eco-product-circle.png')}
+                   alt=""
+              />
+              <span className={classes.header__vegan}>Vegan</span>
+            </div>
             <CartIcon/>
             <LinkButton background={'#F7C3D5'} text={'Каталог'}/>
             <PromoItems/>

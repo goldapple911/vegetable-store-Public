@@ -7,6 +7,7 @@ class App extends Component {
 
   state = {
     navigationClosed: true,
+    headerCircleRotation: 0,
     currentPromo: [
       {name: 'Чистящая паста для посуды и сантехники', price: 250, volume: '250 мл', cover: 'plumbing_paste.jpg'},
       {name: 'Твердый бальзам', price: 230, volume: '18 гр', cover: 'hard_balm.jpg'},
@@ -20,6 +21,15 @@ class App extends Component {
     })
   }
 
+  rotateHeaderCircle = () => {
+    const rotationValue = window.scrollY;
+    const rotationReducer = 10;
+    const currentRotation = rotationValue/rotationReducer;
+    this.setState({
+      headerCircleRotation: currentRotation,
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -29,7 +39,9 @@ class App extends Component {
               value={{
                 navigationClosed: this.state.navigationClosed,
                 currentPromo: this.state.currentPromo,
+                headerCircleRotation: this.state.headerCircleRotation,
                 toggleNavigation: this.toggleNavigation,
+                rotateHeaderCircle: this.rotateHeaderCircle,
               }}
             >
               <Route path="/" exact component={MainPage} />
