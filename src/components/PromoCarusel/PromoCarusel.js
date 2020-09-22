@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default (props) => {
-  const list;
-
   return (
     <ul>
       <li>1</li>
