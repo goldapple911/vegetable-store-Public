@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
-import {Link} from "react-router-dom";
-import classes from "./PromoItems.module.css";
+import { Link } from "react-router-dom";
+import classes from "./HeaderPromoItems.module.css";
 import MainPageContext from '../../pages/MainPage/MainPageContext';
 
 export default (props) => {

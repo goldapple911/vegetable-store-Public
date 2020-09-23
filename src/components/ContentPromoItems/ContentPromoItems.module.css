@@ -1,0 +1,29 @@
+.promo {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.promo__item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.promo__cover {}
+
+.promo__link {}
+
+.promo__link:hover {}
+
+.promo__description {}
+
+.promo__name {}
+
+.promo__price {}
+
+.promo__volume {}
+
+.promo__buy {}
+
+.promo__link:hover .promo__buy {}
+
+.promo__icon {}
