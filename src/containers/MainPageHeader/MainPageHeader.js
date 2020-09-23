@@ -3,7 +3,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import HeaderSlider from '../../components/HeaderSlider/HeaderSlider';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import PromoItems from '../../components/PromoItems/PromoItems';
+import PromoItems from '../../components/HeaderPromoItems/HeaderPromoItems';
 import MainPageContext from "../../pages/MainPage/MainPageContext";
 
 import classes from './MainPageHeader.module.css'
@@ -29,7 +29,7 @@ export default (props) => {
             <div className={classes.header__title}>
               <img className={classes.header__circle}
                    style={{transform: `rotate(${headerContext.headerCircleRotation}deg)`}}
-                   src={require('../../images/backgrounds/eco-product-circle.png')}
+                   //src={require('../../images/backgrounds/eco-product-circle.png')}
                    alt=""
               />
               <span className={classes.header__vegan}>Vegan</span>

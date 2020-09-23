@@ -24,7 +24,7 @@ export default () => {
         autoplay={true}
         loop={true}
       >
-        <SwiperSlide >
+        <SwiperSlide>
           <img className={classes.slider__item} src={require('../../images/header-slider/photo1.jpg')} alt=""/>
           <p className={classes.slider__text}>Дом Солнце 	&#8211; кооператив. <br/> Мы с любовью изготавливаем <br/> все наши продукты, <br/> не забывая <br/> о здоровье планеты.
           </p>

@@ -6,6 +6,7 @@ const MainPageContext = React.createContext({
   headerCircleRotation: 0,
   toggleNavigation: () => {},
   rotateHeaderCircle: () => {},
+  contentPromo: [],
 });
 
 export default MainPageContext;
