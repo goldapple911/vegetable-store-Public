@@ -12,12 +12,7 @@ class App extends Component {
     mainPageCurrentPromo: [{}],
     mainPageCurrentSlides: [],
     mainPageMediaLoading: true,
-    contentPromo: [
-      { name: 'Экомешочек для хлеба', price: 150, volume: '30х40', cover: 'bread_bag.png' },
-      { name: 'Фруктовка', price: 110, volume: '20х20', cover: 'fruit_bag.png' },
-      { name: 'Джут для посуды', price: 100, volume: '', cover: 'dishes_jute.png' },
-      { name: 'Многоразовые бахилы с чехлом', price: 250, volume: '', cover: 'reuseable_shoecovers.png' },
-    ],
+    mainPageContentPromo: [{}],
   }
 
   toggleNavigation = () => {
@@ -43,6 +38,7 @@ class App extends Component {
           ...this.state,
           mainPageCurrentPromo: data?.promo,
           mainPageCurrentSlides: data?.slider,
+          mainPageContentPromo: data?.content,
           mainPageMediaLoading: false,
         })
       })
@@ -62,7 +58,7 @@ class App extends Component {
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
-                contentPromo: this.state.contentPromo,
+                contentPromo: this.state.mainPageContentPromo,
                 mediaLoading: this.state.mainPageMediaLoading,
               }}
             >

@@ -11,7 +11,7 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
 
-export default (props) => {
+export default (props: any) => {
   return (
     <Swiper>
       <SwiperSlide>

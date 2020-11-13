@@ -1,6 +1,18 @@
 .slider {
     width: 528px;
     height: 636px;
+    animation: appearance 0.3s ease-in 1;
+    animation-fill-mode: both;
+    z-index: 2;
+}
+
+@keyframes appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .slider__item {
