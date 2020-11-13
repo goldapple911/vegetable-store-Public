@@ -12,22 +12,18 @@
     margin-bottom: 30px;
 }
 
-.promo__cover {
-    border-radius: 20px;
-    display: block;
-    width: 370px;
-    height: 258px;
-    background: #E9ECFF;
+.promo__item:hover .promo__link {
+    margin-left: -26px;
 }
 
 .promo__link {
     display: block;
     position: relative;
     transition: all 0.2s;
-}
-
-.promo__link:hover {
-    margin-left: -26px;
+    width: 370px;
+    height: 258px;
+    background: #EE738D;
+    border-radius: 20px;
 }
 
 .promo__description {
@@ -82,9 +78,9 @@
     transition: all 0.2s;
 }
 
-.promo__link:hover .promo__buy {
-    right: 38px;
-}
+/*.promo__link:hover .promo__buy {*/
+/*    right: 38px;*/
+/*}*/
 
 .promo__icon {
     padding: 7px 8px;

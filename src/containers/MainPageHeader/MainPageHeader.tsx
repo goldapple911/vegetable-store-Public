@@ -9,7 +9,7 @@ import MainPageContext from "../../pages/MainPage/MainPageContext";
 import classes from './MainPageHeader.module.css'
 
 
-export default (props) => {
+export default (props: any) => {
 
   const headerContext = useContext(MainPageContext);
 
@@ -29,7 +29,7 @@ export default (props) => {
             <div className={classes.header__title}>
               <img className={classes.header__circle}
                    style={{transform: `rotate(${headerContext.headerCircleRotation}deg)`}}
-                   //src={require('../../images/backgrounds/eco-product-circle.png')}
+                   src={require('../../images/backgrounds/eco-product-circle.png')}
                    alt=""
               />
               <span className={classes.header__vegan}>Vegan</span>

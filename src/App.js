@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import MainPageContext from './pages/MainPage/MainPageContext';
+import {firstPageMediaUrl} from "./api/urls";
 
 class App extends Component {
 
   state = {
     navigationClosed: true,
     headerCircleRotation: 0,
-    currentPromo: [
-      {name: 'Чистящая паста для посуды и сантехники', price: 250, volume: '250 мл', cover: 'plumbing_paste.jpg'},
-      {name: 'Твердый бальзам', price: 230, volume: '18 гр', cover: 'hard_balm.jpg'},
-      {name: 'Твердый шампунь', price: 320, volume: '40 гр', cover: 'hard_shampoo.jpg'},
-    ],
+    mainPageCurrentPromo: [{}],
+    mainPageCurrentSlides: [],
+    mainPageMediaLoading: true,
     contentPromo: [
       { name: 'Экомешочек для хлеба', price: 150, volume: '30х40', cover: 'bread_bag.png' },
       { name: 'Фруктовка', price: 110, volume: '20х20', cover: 'fruit_bag.png' },
@@ -36,6 +35,19 @@ class App extends Component {
     })
   }
 
+  getMainPageMedia = () => {
+    fetch(firstPageMediaUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          ...this.state,
+          mainPageCurrentPromo: data?.promo,
+          mainPageCurrentSlides: data?.slider,
+          mainPageMediaLoading: false,
+        })
+      })
+  }
+
   render() {
     return (
       <Router>
@@ -44,11 +56,14 @@ class App extends Component {
             <MainPageContext.Provider
               value={{
                 navigationClosed: this.state.navigationClosed,
-                currentPromo: this.state.currentPromo,
+                currentPromo: this.state.mainPageCurrentPromo,
+                currentSlides: this.state.mainPageCurrentSlides,
                 headerCircleRotation: this.state.headerCircleRotation,
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
+                getMainPageMedia: this.getMainPageMedia,
                 contentPromo: this.state.contentPromo,
+                mediaLoading: this.state.mainPageMediaLoading,
               }}
             >
               <Route path="/" exact component={MainPage} />
