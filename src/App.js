@@ -13,6 +13,8 @@ class App extends Component {
     mainPageCurrentSlides: [],
     mainPageMediaLoading: true,
     mainPageContentPromo: [{}],
+    mainPageTeam: [{}],
+    currentShops: [],
   }
 
   toggleNavigation = () => {
@@ -39,6 +41,8 @@ class App extends Component {
           mainPageCurrentPromo: data?.promo,
           mainPageCurrentSlides: data?.slider,
           mainPageContentPromo: data?.content,
+          mainPageTeam: data?.team,
+          currentShops: data?.shops,
           mainPageMediaLoading: false,
         })
       })
@@ -60,6 +64,7 @@ class App extends Component {
                 getMainPageMedia: this.getMainPageMedia,
                 contentPromo: this.state.mainPageContentPromo,
                 mediaLoading: this.state.mainPageMediaLoading,
+                teamList: this.state.mainPageTeam,
               }}
             >
               <Route path="/" exact component={MainPage} />
