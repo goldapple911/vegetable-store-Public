@@ -65,6 +65,7 @@ class App extends Component {
                 contentPromo: this.state.mainPageContentPromo,
                 mediaLoading: this.state.mainPageMediaLoading,
                 teamList: this.state.mainPageTeam,
+                currentShops: this.state.currentShops,
               }}
             >
               <Route path="/" exact component={MainPage} />

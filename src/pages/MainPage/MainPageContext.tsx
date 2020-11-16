@@ -10,7 +10,8 @@ const MainPageContext = React.createContext({
   rotateHeaderCircle: () => {},
   getMainPageMedia: () => {},
   mediaLoading: true,
-  teamList: [{name: '', photo: ''}]
+  teamList: [{name: '', photo: ''}],
+  currentShops: [''],
 });
 
 export default MainPageContext;
