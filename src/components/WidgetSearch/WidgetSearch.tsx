@@ -22,7 +22,7 @@ export default () => {
 
  return (
    <div className={classes.WidgetSearch}>
-     <h2 className={classes.title}>Найди нас в своем городе</h2>
+     <h2 className={classes.title}>Найди нас <br/> в своем городе</h2>
      <div className={classes.search_container}>
        <label htmlFor="search" className={classes.search_icon}></label>
        <input id={'search'}

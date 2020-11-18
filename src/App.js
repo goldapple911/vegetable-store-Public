@@ -25,7 +25,7 @@ class App extends Component {
 
   rotateHeaderCircle = () => {
     const rotationValue = window.scrollY;
-    const rotationReducer = 10;
+    const rotationReducer = 30;
     const currentRotation = rotationValue/rotationReducer;
     this.setState({
       headerCircleRotation: currentRotation,
