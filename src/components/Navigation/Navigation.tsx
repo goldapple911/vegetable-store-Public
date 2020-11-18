@@ -5,7 +5,7 @@ import MainPageContext from '../../pages/MainPage/MainPageContext';
 import cn from 'classnames';
 
 
-export default (props) => {
+export default (props: any) => {
   const navContext = useContext(MainPageContext);
 
   let navigationWindowClass;

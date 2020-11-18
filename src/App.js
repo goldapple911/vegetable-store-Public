@@ -59,13 +59,14 @@ class App extends Component {
                 currentPromo: this.state.mainPageCurrentPromo,
                 currentSlides: this.state.mainPageCurrentSlides,
                 headerCircleRotation: this.state.headerCircleRotation,
-                toggleNavigation: this.toggleNavigation,
-                rotateHeaderCircle: this.rotateHeaderCircle,
-                getMainPageMedia: this.getMainPageMedia,
                 contentPromo: this.state.mainPageContentPromo,
                 mediaLoading: this.state.mainPageMediaLoading,
                 teamList: this.state.mainPageTeam,
                 currentShops: this.state.currentShops,
+
+                toggleNavigation: this.toggleNavigation,
+                rotateHeaderCircle: this.rotateHeaderCircle,
+                getMainPageMedia: this.getMainPageMedia,
               }}
             >
               <Route path="/" exact component={MainPage} />
