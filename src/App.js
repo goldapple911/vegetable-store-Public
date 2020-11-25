@@ -15,7 +15,10 @@ class App extends Component {
     mainPageContentPromo: [{}],
     mainPageTeam: [{}],
     currentShops: [],
+    scrollTop: false,
   }
+
+  appRootRef = React.createRef();
 
   toggleNavigation = () => {
     this.setState({
@@ -48,10 +51,27 @@ class App extends Component {
       })
   }
 
+  toggleScrollTop = () => {
+    this.setState({
+      ...this.state,
+      scrollTop: true,
+    })
+  }
+
+  componentDidUpdate = (prevState) => {
+    if (this.state.scrollTop) {
+      this.appRootRef.current.scrollIntoView({block: "start", behavior: "smooth"});
+      this.setState({
+        ...this.state,
+        scrollTop: false,
+      })
+    }
+  }
+
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App" ref={this.appRootRef}>
           <Switch>
             <MainPageContext.Provider
               value={{
@@ -67,6 +87,7 @@ class App extends Component {
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
+                toggleScrollTop: this.toggleScrollTop,
               }}
             >
               <Route path="/" exact component={MainPage} />

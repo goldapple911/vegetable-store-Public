@@ -6,12 +6,13 @@ const MainPageContext = React.createContext({
   contentPromo: [{name: '', cover: '', price: '', volume: ''}],
   currentSlides: [''],
   headerCircleRotation: 0,
-  toggleNavigation: () => {},
-  rotateHeaderCircle: () => {},
-  getMainPageMedia: () => {},
   mediaLoading: true,
   teamList: [{name: '', photo: ''}],
   currentShops: [''],
+  toggleNavigation: () => {},
+  rotateHeaderCircle: () => {},
+  getMainPageMedia: () => {},
+  toggleScrollTop: () => {},
 });
 
 export default MainPageContext;

@@ -13,7 +13,7 @@ export default (props: any) => {
         <Link to='/' className={classes.promo__link} style={{backgroundImage: 'url(' + item?.cover + ')'}}>
           <div className={classes.promo__buy}>
             <div className={classes.promo__icon}>
-              <img src={require('../../images/icons/cart.png')} alt=""/>
+              <img src={require('../../images/icons/cart.svg')} alt=""/>
             </div>
             Купить
           </div>

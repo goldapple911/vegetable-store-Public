@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import HeaderSlider from '../../components/HeaderSlider/HeaderSlider';
 import CartIcon from '../../components/CartIcon/CartIcon';

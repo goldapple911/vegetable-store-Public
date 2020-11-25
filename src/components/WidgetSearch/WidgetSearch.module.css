@@ -20,17 +20,21 @@
     color: #000000;
     position: relative;
     padding: 15px 60px 15px 20px;
-    width: 368px;
+    width: 277px;
     outline: none;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.2);
 }
 
 .search_icon {
     content: '';
-    background: url("../../images/icons/search.png") no-repeat center/contain;
-    width: 25px;
-    height: 25px;
+    background: url("../../images/icons/search.svg") no-repeat center/cover;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 24px;
 }
 

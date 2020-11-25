@@ -5,6 +5,7 @@ import MainPageWidgets from '../../containers/MainPageWidgets/MainPageWidgets';
 import Footer from '../../components/Footer/Footer';
 import MainPageContext from "./MainPageContext";
 import PagePreloader from "../../components/PagePreloader/PagePreloader";
+import ScrollButton from "../../components/ScrollButton/ScrollButton";
 
 export default () => {
   const context = useContext(MainPageContext);
@@ -19,6 +20,7 @@ export default () => {
       {mediaLoading
         ? <PagePreloader/>
         : <>
+          <ScrollButton/>
           <MainPageHeader />
           <MainPageContent />
           <MainPageWidgets />

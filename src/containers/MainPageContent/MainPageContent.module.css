@@ -1,5 +1,6 @@
 .MainPageContent {
-  background-color: #fff;
+  background-color: #FFFFFF;
+  background: url('../../images/backgrounds/main_page_bg.jpg') no-repeat top/contain;
 }
 
 .generator__container {

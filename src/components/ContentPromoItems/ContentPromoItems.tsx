@@ -14,7 +14,7 @@ export default () => {
           <img className={classes.promo__cover} src={item.cover} alt=""/>
           <div className={classes.promo__buy}>
             <div className={classes.promo__icon}>
-              <img src={require('../../images/icons/cart.png')} alt=""/>
+              <img src={require('../../images/icons/cart.svg')} alt=""/>
             </div>
             Купить
           </div>

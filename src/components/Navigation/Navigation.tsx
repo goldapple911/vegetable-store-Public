@@ -18,9 +18,9 @@ export default (props: any) => {
 
   return (
     <nav className={classes.navigation}>
-      <img className={classes.navigation__hamburger} src={require('../../images/icons/hamburger.png')} alt="" onClick={navContext.toggleNavigation}/>
+      <img className={classes.navigation__hamburger} src={require('../../images/icons/hamburger.svg')} alt="" onClick={navContext.toggleNavigation}/>
       <div className={navigationWindowClass}>
-        <img className={classes.navigation__cross} src={require('../../images/icons/cross.png')} alt="" onClick={navContext.toggleNavigation}/>
+        <img className={classes.navigation__cross} src={require('../../images/icons/cross.svg')} alt="" onClick={navContext.toggleNavigation}/>
         <ul className={classes.navigation__list}>
           <Link to='/' className={classes.navigation__link}>
             <li className={classes.navigation__text}>Каталог</li>

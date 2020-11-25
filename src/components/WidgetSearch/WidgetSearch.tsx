@@ -29,6 +29,7 @@ export default () => {
               type="text"
               className={classes.input}
               value={selectedShop}
+              placeholder={"Введите город"}
               onChange={(e) => {
                 handleSelectShop(e)
               }}
