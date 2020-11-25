@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 import classes from "./HeaderPromoItems.module.css";
-import MainPageContext from '../../pages/MainPage/MainPageContext';
+import PagesContext from '../../pages/PagesContext';
 
 export default (props: any) => {
-  const promoContext = useContext(MainPageContext);
+  const promoContext = useContext(PagesContext);
   const items = promoContext.currentPromo;
 
   const listItems = items.map((item, id) => {

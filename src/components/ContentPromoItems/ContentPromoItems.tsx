@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
 import classes from './ContentPromoItems.module.css';
-import MainPageContext from '../../pages/MainPage/MainPageContext';
+import PagesContext from '../../pages/PagesContext';
 import { Link } from 'react-router-dom';
 
 export default () => {
-  const promoContext = useContext(MainPageContext);
+  const promoContext = useContext(PagesContext);
 
   const items = promoContext?.contentPromo;
   const listItems = items?.map((item) =>

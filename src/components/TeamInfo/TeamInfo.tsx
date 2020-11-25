@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 import classes from './TeamInfo.module.css';
-import MainPageContext from "../../pages/MainPage/MainPageContext";
+import PagesContext from "../../pages/PagesContext";
 
 export default () => {
 
-  const teamContext = useContext(MainPageContext);
+  const teamContext = useContext(PagesContext);
   const teamList = teamContext?.teamList;
 
   return (

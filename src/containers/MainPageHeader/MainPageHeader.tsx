@@ -4,14 +4,14 @@ import HeaderSlider from '../../components/HeaderSlider/HeaderSlider';
 import CartIcon from '../../components/CartIcon/CartIcon';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import PromoItems from '../../components/HeaderPromoItems/HeaderPromoItems';
-import MainPageContext from "../../pages/MainPage/MainPageContext";
+import PagesContext from "../../pages/PagesContext";
 
 import classes from './MainPageHeader.module.css'
 
 
 export default (props: any) => {
 
-  const headerContext = useContext(MainPageContext);
+  const headerContext = useContext(PagesContext);
 
   useEffect(() => {
     window.addEventListener('scroll', headerContext.rotateHeaderCircle);

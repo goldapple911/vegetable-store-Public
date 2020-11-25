@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
-import MainPageContext from './pages/MainPage/MainPageContext';
+import CataloguePage from './pages/CataloguePage/CataloguePage';
 import {firstPageMediaUrl} from "./api/urls";
+import PagesContext from "./pages/PagesContext"
 
 class App extends Component {
 
@@ -73,7 +74,7 @@ class App extends Component {
       <Router>
         <div className="App" ref={this.appRootRef}>
           <Switch>
-            <MainPageContext.Provider
+            <PagesContext.Provider
               value={{
                 navigationClosed: this.state.navigationClosed,
                 currentPromo: this.state.mainPageCurrentPromo,
@@ -91,7 +92,8 @@ class App extends Component {
               }}
             >
               <Route path="/" exact component={MainPage} />
-            </MainPageContext.Provider>
+              <Route path="/catalogue" component={CataloguePage} />
+            </PagesContext.Provider>
           </Switch>
         </div>
       </Router>

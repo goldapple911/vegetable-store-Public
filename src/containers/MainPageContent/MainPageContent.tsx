@@ -1,12 +1,9 @@
 import React, {useContext} from 'react';
 
 import classes from './MainPageContent.module.css';
-// import ScrollButton from '../../components/ScrollButton/ScrollButton';
 import PromoCarusel from '../../components/PromoCarusel/PromoCarusel';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import TeamInfo from "../../components/TeamInfo/TeamInfo";
-import MainPageContext from "../../pages/MainPage/MainPageContext";
-// import { Link } from 'react-router-dom';
 
 export default () => {
 

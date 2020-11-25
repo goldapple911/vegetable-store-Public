@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import classes from './WidgetSearch.module.css'
-import MainPageContext from "../../pages/MainPage/MainPageContext";
+import PagesContext from "../../pages/PagesContext";
 
 export default () => {
 
- const searchContext = useContext(MainPageContext);
+ const searchContext = useContext(PagesContext);
  const currentShops = searchContext?.currentShops;
 
  const [filteredShops, setFilteredShops] = useState(['']);

@@ -10,13 +10,13 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import './HeaderSliderHelpers.css'
-import MainPageContext from "../../pages/MainPage/MainPageContext";
+import PagesContext from '../../pages/PagesContext';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
 export default () => {
 
-  const sliderContext = useContext(MainPageContext);
+  const sliderContext = useContext(PagesContext);
   const currentSlides = sliderContext?.currentSlides;
 
   return (

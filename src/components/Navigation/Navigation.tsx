@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import classes from "./Navigation.module.css";
-import MainPageContext from '../../pages/MainPage/MainPageContext';
+import PagesContext from '../../pages/PagesContext';
 import cn from 'classnames';
 
 
 export default (props: any) => {
-  const navContext = useContext(MainPageContext);
+  const navContext = useContext(PagesContext);
 
   let navigationWindowClass;
 
@@ -22,7 +22,7 @@ export default (props: any) => {
       <div className={navigationWindowClass}>
         <img className={classes.navigation__cross} src={require('../../images/icons/cross.svg')} alt="" onClick={navContext.toggleNavigation}/>
         <ul className={classes.navigation__list}>
-          <Link to='/' className={classes.navigation__link}>
+          <Link to='/catalogue' className={classes.navigation__link}>
             <li className={classes.navigation__text}>Каталог</li>
           </Link>
           <Link to='/' className={classes.navigation__link}>
