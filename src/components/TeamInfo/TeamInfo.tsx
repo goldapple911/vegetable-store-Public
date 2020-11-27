@@ -21,12 +21,12 @@ export default () => {
             )
           }
           <img className={classes.circle_right}
-               style={{transform: `rotate(${teamContext.headerCircleRotation}deg)`}}
+               style={{transform: `rotate(${teamContext?.headerCircleRotation}deg)`}}
                src={require('../../images/backgrounds/eco_product_circle_white.png')}
                alt=""
           />
           <img className={classes.circle_left}
-               style={{transform: `rotate(${teamContext.headerCircleRotation}deg)`}}
+               style={{transform: `rotate(${teamContext?.headerCircleRotation}deg)`}}
                src={require('../../images/backgrounds/eco_product_circle_white.png')}
                alt=""
           />

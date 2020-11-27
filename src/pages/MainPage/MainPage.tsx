@@ -9,10 +9,10 @@ import ScrollButton from "../../components/ScrollButton/ScrollButton";
 
 export default () => {
   const context = useContext(PagesContext);
-  const mediaLoading = context.mediaLoading;
+  const mediaLoading = context?.mediaLoading;
 
    useEffect( ()  => {
-     context.getMainPageMedia()
+     context?.getMainPageMedia()
   }, [])
 
   return (

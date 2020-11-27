@@ -12,7 +12,7 @@ export default () => {
 
  const handleSelectShop = (e: any) => {
    setSelectedShop(e.target.value);
-   if (e.target.value) {
+   if (currentShops && e.target.value) {
      const newShopList = currentShops?.filter((item: string) => item.toLowerCase().includes(e.target.value.toLowerCase()))
      setFilteredShops(newShopList);
    } else {

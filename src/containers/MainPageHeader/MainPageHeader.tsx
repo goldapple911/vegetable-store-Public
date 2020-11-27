@@ -14,7 +14,9 @@ export default (props: any) => {
   const headerContext = useContext(PagesContext);
 
   useEffect(() => {
-    window.addEventListener('scroll', headerContext.rotateHeaderCircle);
+    if (headerContext) {
+      window.addEventListener('scroll', headerContext.rotateHeaderCircle);
+    }
   });
 
   return (
@@ -28,7 +30,7 @@ export default (props: any) => {
           <div className={classes.header__column}>
             <div className={classes.header__title}>
               <img className={classes.header__circle}
-                   style={{transform: `rotate(${headerContext.headerCircleRotation}deg)`}}
+                   style={{transform: `rotate(${headerContext?.headerCircleRotation}deg)`}}
                    src={require('../../images/backgrounds/eco-product-circle.png')}
                    alt=""
               />

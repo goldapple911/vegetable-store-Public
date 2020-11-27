@@ -6,7 +6,7 @@ export default (props: any) => {
   const scrollButtonContext = useContext(PagesContext);
 
   return (
-    <button className={classes.ScrollButton} onClick={scrollButtonContext.toggleScrollTop}>
+    <button className={classes.ScrollButton} onClick={scrollButtonContext?.toggleScrollTop}>
       <img src={require('../../images/icons/arrow.svg')} alt=""/>
     </button>
   );

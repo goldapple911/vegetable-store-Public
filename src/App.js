@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import CataloguePage from './pages/CataloguePage/CataloguePage';
-import {firstPageMediaUrl} from "./api/urls";
+import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
 import PagesContext from "./pages/PagesContext"
 
 class App extends Component {
@@ -17,6 +17,9 @@ class App extends Component {
     mainPageTeam: [{}],
     currentShops: [],
     scrollTop: false,
+    catalogueCategories: [{}],
+    selectedCataloguePage: '',
+    catalogueLoading: true,
   }
 
   appRootRef = React.createRef();
@@ -52,6 +55,28 @@ class App extends Component {
       })
   }
 
+  getCataloguePageMedia = () => {
+    fetch(cataloguePageMediaUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          ...this.state,
+        })
+      })
+  }
+
+  getCatalogue = () => {
+    fetch(catalogueUrl)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          ...this.state,
+          catalogueCategories: data.categories,
+          catalogueLoading: false,
+        })
+      })
+  }
+
   toggleScrollTop = () => {
     this.setState({
       ...this.state,
@@ -69,6 +94,13 @@ class App extends Component {
     }
   }
 
+  selectCataloguePage = (page) => {
+    this.setState({
+      ...this.state,
+      selectedCataloguePage: page,
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -84,11 +116,16 @@ class App extends Component {
                 mediaLoading: this.state.mainPageMediaLoading,
                 teamList: this.state.mainPageTeam,
                 currentShops: this.state.currentShops,
+                selectedCataloguePage: this.state.selectedCataloguePage,
+                catalogueCategories: this.state.catalogueCategories,
+                catalogueLoading: this.state.catalogueLoading,
 
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
                 toggleScrollTop: this.toggleScrollTop,
+                getCatalogue: this.getCatalogue,
+                selectCataloguePage: this.selectCataloguePage,
               }}
             >
               <Route path="/" exact component={MainPage} />

@@ -5,9 +5,9 @@ import PagesContext from '../../pages/PagesContext';
 
 export default (props: any) => {
   const promoContext = useContext(PagesContext);
-  const items = promoContext.currentPromo;
+  const items = promoContext?.currentPromo;
 
-  const listItems = items.map((item, id) => {
+  const listItems = items?.map((item, id) => {
     return (
       <li key={id} className={classes.promo__item} >
         <Link to='/' className={classes.promo__link} style={{backgroundImage: 'url(' + item?.cover + ')'}}>
