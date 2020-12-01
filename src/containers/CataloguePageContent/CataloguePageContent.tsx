@@ -8,40 +8,22 @@ import LinkButton from "../../components/LinkButton/LinkButton";
 import PagesContext from '../../pages/PagesContext';
 import CatalogueItems from "../../components/CatalogueItems/CatalogueItems";
 import CatalogueMenu from "../../components/CatalogueMenu/CatalogueMenu";
+import ActiveItemModal from "../../components/ActiveItemModal/ActiveItemModal";
 
 export default () => {
 
   const catalogueContext = useContext(PagesContext);
 
   const selectedPage = catalogueContext?.selectedCataloguePage;
-
   const catalogue = catalogueContext?.catalogue;
+  const activeItem = catalogueContext?.activeItem;
 
-  // let currentItems: any;
+  let currentItems;
 
-  // switch (selectedPage) {
-  //   case "forHair":
-  //     currentItems = [{}];
-  //     break;
-  //   case "forBody":
-  //     currentItems = [{}];
-  //     break;
-  //   case "forFace":
-  //     currentItems = [{}];
-  //     break;
-  //   case "relatedProducts":
-  //     currentItems = [{}];
-  //     break;
-  //   case "zeroWaste":
-  //     currentItems = [{}];
-  //     break;
-  //   case "forHome":
-  //     currentItems = [{}];
-  //     break;
-  //   default:
-  //     currentItems = catalogueContext.catalogueCategories;
-  //     break;
-  // }
+  if (catalogue && selectedPage) {
+    // @ts-ignore
+    currentItems = catalogue[selectedPage]
+  }
 
   return (
     <main className={classes.CataloguePageContent}>
@@ -58,12 +40,15 @@ export default () => {
             <LinkButton/>
           </div>
           {
-            selectedPage
-              ? <CatalogueItems/>
+            currentItems
+              ? <CatalogueItems currentItems={currentItems}/>
               : <CatalogueMenu/>
           }
         </div>
       </div>
+      {
+        activeItem?.name && <ActiveItemModal/>
+      }
     </main>
   )
 };

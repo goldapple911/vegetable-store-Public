@@ -12,7 +12,7 @@ export default (props: any) => {
   const productItems = currentItems.map((item: any, id: number) => {
     return (
       <li key={id} className={classes.item} >
-
+        {item.name}
       </li>
     )
   });

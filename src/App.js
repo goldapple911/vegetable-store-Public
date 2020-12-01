@@ -20,6 +20,8 @@ class App extends Component {
     catalogueCategories: [{}],
     selectedCataloguePage: '',
     catalogueLoading: true,
+    catalogue: {},
+    activeItem: {},
   }
 
   appRootRef = React.createRef();
@@ -72,6 +74,7 @@ class App extends Component {
         this.setState({
           ...this.state,
           catalogueCategories: data.categories,
+          catalogue: data.catalogue,
           catalogueLoading: false,
         })
       })
@@ -119,6 +122,8 @@ class App extends Component {
                 selectedCataloguePage: this.state.selectedCataloguePage,
                 catalogueCategories: this.state.catalogueCategories,
                 catalogueLoading: this.state.catalogueLoading,
+                catalogue: this.state.catalogue,
+                activeItem: this.state.activeItem,
 
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
