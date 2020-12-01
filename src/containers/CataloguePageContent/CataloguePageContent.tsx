@@ -47,7 +47,7 @@ export default () => {
         </div>
       </div>
       {
-        activeItem?.name && <ActiveItemModal/>
+        activeItem?.item?.name && <ActiveItemModal/>
       }
     </main>
   )

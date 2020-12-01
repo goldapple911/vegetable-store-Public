@@ -10,6 +10,9 @@ interface catalogueItem {
   name: string,
   volumes: catalogueItemVolume[],
   cover: string,
+  type: string,
+  description: string,
+  composition: string,
 }
 
 interface promoItem {
@@ -39,6 +42,11 @@ interface catalogueInterface {
   forHome: catalogueItem[],
 }
 
+interface activeItem {
+  item: catalogueItem,
+  selectedVolume: catalogueItemVolume,
+}
+
 interface appInterface {
   navigationClosed: boolean,
   currentPromo: promoItem[], // TEST OPTION
@@ -53,13 +61,15 @@ interface appInterface {
   selectedCataloguePage: any,
   catalogueLoading: boolean,
   catalogue: catalogueInterface,
-  activeItem: catalogueItem,
+  activeItem: activeItem,
   toggleNavigation(): any,
   rotateHeaderCircle(): any,
   getMainPageMedia(): any,
   toggleScrollTop(): any,
   getCatalogue(): any,
   selectCataloguePage(id: string): any,
+  selectActiveItem(item: any): any,
+  changeActiveVolume(volume: any): any,
 }
 
 const PagesContext = React.createContext<appInterface | null>(null);

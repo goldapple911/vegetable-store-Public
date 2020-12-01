@@ -104,6 +104,35 @@ class App extends Component {
     })
   }
 
+  selectActiveItem = (item) => {
+    if (item) {
+      const newActiveItem = {
+        item: item,
+        selectedVolume: item?.volumes[0],
+      }
+      this.setState({
+        ...this.state,
+        activeItem: newActiveItem,
+      })
+    } else {
+      this.setState({
+        ...this.state,
+        activeItem: {},
+      })
+    }
+  }
+
+  changeActiveVolume = (volume) => {
+    const newActiveItem = {
+      item: this.state.activeItem?.item,
+      selectedVolume: volume,
+    }
+    this.setState({
+      ...this.state,
+      activeItem: newActiveItem,
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -131,6 +160,8 @@ class App extends Component {
                 toggleScrollTop: this.toggleScrollTop,
                 getCatalogue: this.getCatalogue,
                 selectCataloguePage: this.selectCataloguePage,
+                selectActiveItem: this.selectActiveItem,
+                changeActiveVolume: this.changeActiveVolume,
               }}
             >
               <Route path="/" exact component={MainPage} />
