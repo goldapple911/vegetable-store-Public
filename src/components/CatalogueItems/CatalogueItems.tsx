@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
+import CatalogueItemCard from "../CatalogueItemCard/CatalogueItemCard";
 import classes from "./CatalogueItems.module.css";
 import PagesContext from '../../pages/PagesContext';
 
@@ -13,12 +14,7 @@ export default (props: any) => {
 
   const productItems = currentItems.map((item: any, id: number) => {
     return (
-      <li key={id}
-          className={classes.item}
-          onClick={() => catalogueContext?.selectActiveItem(item)}
-      >
-        {item.name}
-      </li>
+      <CatalogueItemCard item={item} key={id}/>
     )
   });
 

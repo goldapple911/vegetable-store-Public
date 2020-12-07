@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import CataloguePage from './pages/CataloguePage/CataloguePage';
 import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
-import PagesContext from "./pages/PagesContext"
+import PagesContext from "./pages/PagesContext";
+import { find, isEqual, indexOf } from "lodash";
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
     catalogueLoading: true,
     catalogue: {},
     activeItem: {},
+    cartItems: [],
   }
 
   appRootRef = React.createRef();
@@ -87,7 +89,7 @@ class App extends Component {
     })
   }
 
-  componentDidUpdate = (prevState) => {
+  componentDidUpdate = () => {
     if (this.state.scrollTop) {
       this.appRootRef.current.scrollIntoView({block: "start", behavior: "smooth"});
       this.setState({
@@ -133,7 +135,59 @@ class App extends Component {
     })
   }
 
+  addItemToCart = (item) => {
+    let newCartItems;
+    const currentCartItem = find(this.state.cartItems, (cartItem) => {
+      return isEqual(cartItem.item, item)
+    })
+    if (currentCartItem) {
+      newCartItems = [...this.state.cartItems]
+      const index = indexOf(this.state.cartItems, currentCartItem);
+      const newItem = {
+        item: currentCartItem.item,
+        count: currentCartItem.count + 1,
+      };
+      newCartItems.splice(index, 1, newItem);
+    } else {
+      const newCartItem = {
+        item: item,
+        count: 1,
+      }
+      newCartItems = [...this.state.cartItems, newCartItem];
+    }
+    this.setState({
+      ...this.state,
+      cartItems: newCartItems,
+    })
+  }
+
+  removeItemFromCart = (item) => {
+    let newCartItems;
+    const currentCartItem = find(this.state.cartItems, (cartItem) => {
+      return isEqual(cartItem.item, item)
+    })
+    if (currentCartItem?.count > 1) {
+      newCartItems = [...this.state.cartItems]
+      const index = indexOf(this.state.cartItems, currentCartItem);
+      const newItem = {
+        item: currentCartItem.item,
+        count: currentCartItem.count - 1,
+      };
+      newCartItems.splice(index, 1, newItem);
+    }
+    else if (currentCartItem?.count === 1) {
+      newCartItems = [...this.state.cartItems]
+      const index = indexOf(this.state.cartItems, currentCartItem);
+      newCartItems.splice(index, 1);
+    }
+    this.setState({
+      ...this.state,
+      cartItems: newCartItems ? newCartItems : [],
+    })
+  }
+
   render() {
+
     return (
       <Router>
         <div className="App" ref={this.appRootRef}>
@@ -153,7 +207,7 @@ class App extends Component {
                 catalogueLoading: this.state.catalogueLoading,
                 catalogue: this.state.catalogue,
                 activeItem: this.state.activeItem,
-
+                // cartItems: this.state.cartItems,
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
@@ -162,6 +216,8 @@ class App extends Component {
                 selectCataloguePage: this.selectCataloguePage,
                 selectActiveItem: this.selectActiveItem,
                 changeActiveVolume: this.changeActiveVolume,
+                addItemToCart: this.addItemToCart,
+                removeItemFromCart: this.removeItemFromCart,
               }}
             >
               <Route path="/" exact component={MainPage} />

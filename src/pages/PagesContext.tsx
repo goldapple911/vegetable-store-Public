@@ -47,6 +47,11 @@ interface activeItem {
   selectedVolume: catalogueItemVolume,
 }
 
+interface cartItem {
+  item: activeItem,
+  count: number,
+}
+
 interface appInterface {
   navigationClosed: boolean,
   currentPromo: promoItem[], // TEST OPTION
@@ -62,6 +67,7 @@ interface appInterface {
   catalogueLoading: boolean,
   catalogue: catalogueInterface,
   activeItem: activeItem,
+  cartItems: cartItem[],
   toggleNavigation(): any,
   rotateHeaderCircle(): any,
   getMainPageMedia(): any,
@@ -70,6 +76,8 @@ interface appInterface {
   selectCataloguePage(id: string): any,
   selectActiveItem(item: any): any,
   changeActiveVolume(volume: any): any,
+  addItemToCart(item: activeItem): any,
+  removeItemFromCart(item: activeItem): any,
 }
 
 const PagesContext = React.createContext<appInterface | null>(null);
