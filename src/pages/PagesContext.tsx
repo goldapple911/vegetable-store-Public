@@ -52,6 +52,11 @@ interface cartItem {
   count: number,
 }
 
+interface pageInfo {
+  name: string,
+  href: string,
+}
+
 interface appInterface {
   navigationClosed: boolean,
   currentPromo: promoItem[], // TEST OPTION
@@ -68,6 +73,7 @@ interface appInterface {
   catalogue: catalogueInterface,
   activeItem: activeItem,
   cartItems: cartItem[],
+  currentPages: pageInfo[],
   toggleNavigation(): any,
   rotateHeaderCircle(): any,
   getMainPageMedia(): any,

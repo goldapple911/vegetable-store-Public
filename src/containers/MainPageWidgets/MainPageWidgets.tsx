@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './MainPageWidgets.module.css'
-import WidgetSearch from "../../components/WidgetSearch/WidgetSearch";
+import { WidgetSearch } from "../../components";
 
 export default () => {
   return (

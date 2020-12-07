@@ -1,14 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react';
-
 import classes from './CataloguePageContent.module.css';
-import Navigation from "../../components/Navigation/Navigation";
-import CartIcon from "../../components/CartIcon/CartIcon";
-import CatalogueOptions from "../../components/CatalogueOptions/CatalogueOptions";
-import LinkButton from "../../components/LinkButton/LinkButton";
+import {
+  Navigation,
+  CartIcon,
+  CatalogueOptions,
+  LinkButton,
+  CatalogueItems,
+  CatalogueMenu,
+  ActiveItemModal,
+} from "../../components"
+
 import PagesContext from '../../pages/PagesContext';
-import CatalogueItems from "../../components/CatalogueItems/CatalogueItems";
-import CatalogueMenu from "../../components/CatalogueMenu/CatalogueMenu";
-import ActiveItemModal from "../../components/ActiveItemModal/ActiveItemModal";
 
 export default () => {
 

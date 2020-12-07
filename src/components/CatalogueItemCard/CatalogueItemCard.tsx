@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Link} from 'react-router-dom'
+import React, {useContext, useState} from 'react';
 import classes from "./CatalogueItemCard.module.css";
 import PagesContext from '../../pages/PagesContext';
 import { isEqual } from 'lodash'
@@ -12,10 +11,7 @@ export default (props: any) => {
 
   const [selectedVolume, setSelectedVolume] = useState(item.volumes[0])
 
-
   const catalogueContext = useContext(PagesContext);
-
-
 
   const volumes = item.volumes.map((volume: any, index: number) => {
     return (

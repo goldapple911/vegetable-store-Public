@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import classes from './ContentPromoItems.module.css';
 import PagesContext from '../../pages/PagesContext';
 import { Link } from 'react-router-dom';

@@ -1,9 +1,10 @@
-import React, {useContext} from 'react';
-
+import React from 'react';
 import classes from './MainPageContent.module.css';
-import PromoCarusel from '../../components/PromoCarusel/PromoCarusel';
-import LinkButton from '../../components/LinkButton/LinkButton';
-import TeamInfo from "../../components/TeamInfo/TeamInfo";
+import {
+  PromoCarusel,
+  LinkButton,
+  TeamInfo,
+} from "../../components"
 
 export default () => {
 

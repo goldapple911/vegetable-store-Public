@@ -1,13 +1,13 @@
-import React, {useContext, useEffect, useRef} from 'react';
-import Navigation from '../../components/Navigation/Navigation';
-import HeaderSlider from '../../components/HeaderSlider/HeaderSlider';
-import CartIcon from '../../components/CartIcon/CartIcon';
-import LinkButton from '../../components/LinkButton/LinkButton';
-import PromoItems from '../../components/HeaderPromoItems/HeaderPromoItems';
+import React, {useContext, useEffect} from 'react';
+import {
+  Navigation,
+  HeaderSlider,
+  CartIcon,
+  LinkButton,
+  HeaderPromoItems,
+} from "../../components"
 import PagesContext from "../../pages/PagesContext";
-
 import classes from './MainPageHeader.module.css'
-
 
 export default (props: any) => {
 
@@ -38,7 +38,7 @@ export default (props: any) => {
             </div>
             <CartIcon/>
             <LinkButton className={classes.header__link} text={'Каталог'}/>
-            <PromoItems/>
+            <HeaderPromoItems/>
           </div>
         </div>
       </div>

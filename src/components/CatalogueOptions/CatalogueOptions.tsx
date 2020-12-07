@@ -1,16 +1,33 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import React, {useState, useContext} from 'react';
 import classes from "./CatalogueOptions.module.css";
-import PagesContext from '../../pages/PagesContext';
-import cn from 'classnames';
 import {without, compact, get} from "lodash"
+import PagesContext from "../../pages/PagesContext";
 
 export default (props: any) => {
+
+  const CatalogueContext = useContext(PagesContext);
+
+  const catalogue = CatalogueContext?.catalogue;
+
+  let catalogueMaxPrice
+
+  if (catalogue) {
+    const catalogueItems = Object.keys(catalogue).map((category: any) => {
+      // @ts-ignore
+      return catalogue[category];
+    }).flat();
+    const cataloguePrices = compact(catalogueItems.map((item: any) => {
+      return item.volumes.map((volume: any) => {
+        return volume.price1;
+      })
+    }).flat())
+    catalogueMaxPrice = Math.max.apply(null, cataloguePrices)
+  }
 
   const initialFilters = {
     name: '',
     minPrice: 0,
-    maxPrice: 1000, //TEST VALUE!!!
+    maxPrice: catalogueMaxPrice,
     filters: [''],
   }
 
@@ -19,6 +36,10 @@ export default (props: any) => {
   const {
     currentItems
   } = props
+
+  currentItems?.map((item: any) => {
+    console.log(item)
+  })
 
   const itemsList = currentItems?.map((item: any, index: number) => {
     return (

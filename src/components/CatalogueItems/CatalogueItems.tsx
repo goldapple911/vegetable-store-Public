@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Link} from 'react-router-dom'
-import CatalogueItemCard from "../CatalogueItemCard/CatalogueItemCard";
+import { CatalogueItemCard } from "../../components"
 import classes from "./CatalogueItems.module.css";
 import PagesContext from '../../pages/PagesContext';
 

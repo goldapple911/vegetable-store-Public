@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import CataloguePage from './pages/CataloguePage/CataloguePage';
+import CartPage from './pages/CartPage/CartPage';
 import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
 import PagesContext from "./pages/PagesContext";
 import { find, isEqual, indexOf } from "lodash";
 
 class App extends Component {
+
+  pagesList = [
+    {name: "Каталог", href: "/catalogue"},
+    {name: "О нас", href: "/about"},
+    {name: "Карзина", href: "/cart"},
+    {name: "Главная", href: "/"},
+  ]
 
   state = {
     navigationClosed: true,
@@ -24,6 +32,7 @@ class App extends Component {
     catalogue: {},
     activeItem: {},
     cartItems: [],
+    currentPages: this.pagesList,
   }
 
   appRootRef = React.createRef();
@@ -207,7 +216,8 @@ class App extends Component {
                 catalogueLoading: this.state.catalogueLoading,
                 catalogue: this.state.catalogue,
                 activeItem: this.state.activeItem,
-                // cartItems: this.state.cartItems,
+                cartItems: this.state.cartItems,
+                currentPages: this.state.currentPages,
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
@@ -222,6 +232,8 @@ class App extends Component {
             >
               <Route path="/" exact component={MainPage} />
               <Route path="/catalogue" component={CataloguePage} />
+              <Route path="/cart" component={CartPage} />
+              <Route path="/about" component={CartPage} />
             </PagesContext.Provider>
           </Switch>
         </div>
