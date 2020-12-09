@@ -33,9 +33,40 @@ class App extends Component {
     activeItem: {},
     cartItems: [],
     currentPages: this.pagesList,
+    totalCost: 0,
+    packAsPresent: false,
   }
 
   appRootRef = React.createRef();
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.scrollTop) {
+      this.appRootRef.current.scrollIntoView({block: "start", behavior: "smooth"});
+      this.setState({
+        ...this.state,
+        scrollTop: false,
+      })
+    }
+    (!isEqual(prevState?.cartItems, this.state.cartItems) || prevState?.packAsPresent !== this.state.packAsPresent)
+      && this.calculateTotalCost();
+  }
+
+  calculateTotalCost = () => {
+    let totalCost = 0;
+    this.state.cartItems.map((item) => {
+      let item3Count = 0;
+      for (let i = item.count; i/3 >= 1; i -= 3) {
+        item3Count += 1;
+      }
+      const item1Count = item.count - item3Count * 3;
+      totalCost += item3Count * item.item.selectedVolume.price3 + item1Count * item.item.selectedVolume.price1
+    })
+    if (this.state.packAsPresent) totalCost += 300;
+    this.setState({
+      ...this.state,
+      totalCost: totalCost,
+    })
+  }
 
   toggleNavigation = () => {
     this.setState({
@@ -96,16 +127,6 @@ class App extends Component {
       ...this.state,
       scrollTop: true,
     })
-  }
-
-  componentDidUpdate = () => {
-    if (this.state.scrollTop) {
-      this.appRootRef.current.scrollIntoView({block: "start", behavior: "smooth"});
-      this.setState({
-        ...this.state,
-        scrollTop: false,
-      })
-    }
   }
 
   selectCataloguePage = (page) => {
@@ -170,12 +191,12 @@ class App extends Component {
     })
   }
 
-  removeItemFromCart = (item) => {
+  removeItemFromCart = (item, sub) => {
     let newCartItems;
     const currentCartItem = find(this.state.cartItems, (cartItem) => {
       return isEqual(cartItem.item, item)
     })
-    if (currentCartItem?.count > 1) {
+    if (currentCartItem?.count > 1 && sub === 1) {
       newCartItems = [...this.state.cartItems]
       const index = indexOf(this.state.cartItems, currentCartItem);
       const newItem = {
@@ -184,7 +205,7 @@ class App extends Component {
       };
       newCartItems.splice(index, 1, newItem);
     }
-    else if (currentCartItem?.count === 1) {
+    else if (currentCartItem?.count === 1 || sub > 1) {
       newCartItems = [...this.state.cartItems]
       const index = indexOf(this.state.cartItems, currentCartItem);
       newCartItems.splice(index, 1);
@@ -192,6 +213,13 @@ class App extends Component {
     this.setState({
       ...this.state,
       cartItems: newCartItems ? newCartItems : [],
+    })
+  }
+
+  togglePackAsPresent = () => {
+    this.setState({
+      ...this.state,
+      packAsPresent: !this.state.packAsPresent,
     })
   }
 
@@ -218,6 +246,7 @@ class App extends Component {
                 activeItem: this.state.activeItem,
                 cartItems: this.state.cartItems,
                 currentPages: this.state.currentPages,
+                totalCost: this.state.totalCost,
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
@@ -228,6 +257,7 @@ class App extends Component {
                 changeActiveVolume: this.changeActiveVolume,
                 addItemToCart: this.addItemToCart,
                 removeItemFromCart: this.removeItemFromCart,
+                togglePackAsPresent: this.togglePackAsPresent,
               }}
             >
               <Route path="/" exact component={MainPage} />

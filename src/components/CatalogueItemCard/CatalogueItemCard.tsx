@@ -31,7 +31,7 @@ export default (props: any) => {
       <button onClick={() => catalogueContext?.selectActiveItem(item)}>/</button>
       {item.name}
       <button onClick={() => catalogueContext?.addItemToCart({item, selectedVolume})}>+</button>
-      <button onClick={() => catalogueContext?.removeItemFromCart({item, selectedVolume})}>-</button>
+      <button onClick={() => catalogueContext?.removeItemFromCart({item, selectedVolume}, 1)}>-</button>
       <ul>
         { volumes }
       </ul>

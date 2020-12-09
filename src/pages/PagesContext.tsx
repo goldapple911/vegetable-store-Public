@@ -3,7 +3,7 @@ import React from 'react';
 interface catalogueItemVolume {
   volume: string,
   price1: number,
-  price2: number,
+  price3: number,
 }
 
 interface catalogueItem {
@@ -74,6 +74,7 @@ interface appInterface {
   activeItem: activeItem,
   cartItems: cartItem[],
   currentPages: pageInfo[],
+  totalCost: number,
   toggleNavigation(): any,
   rotateHeaderCircle(): any,
   getMainPageMedia(): any,
@@ -83,7 +84,8 @@ interface appInterface {
   selectActiveItem(item: any): any,
   changeActiveVolume(volume: any): any,
   addItemToCart(item: activeItem): any,
-  removeItemFromCart(item: activeItem): any,
+  removeItemFromCart(item: activeItem, sub: number): any,
+  togglePackAsPresent(): any,
 }
 
 const PagesContext = React.createContext<appInterface | null>(null);

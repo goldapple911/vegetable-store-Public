@@ -37,10 +37,6 @@ export default (props: any) => {
     currentItems
   } = props
 
-  currentItems?.map((item: any) => {
-    console.log(item)
-  })
-
   const itemsList = currentItems?.map((item: any, index: number) => {
     return (
       <li key={index}>

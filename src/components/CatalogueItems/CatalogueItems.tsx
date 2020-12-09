@@ -1,11 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React from 'react';
 import { CatalogueItemCard } from "../../components"
 import classes from "./CatalogueItems.module.css";
-import PagesContext from '../../pages/PagesContext';
 
 export default (props: any) => {
-
-  const catalogueContext = useContext(PagesContext);
 
   const {
     currentItems
