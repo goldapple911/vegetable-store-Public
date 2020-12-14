@@ -5,6 +5,10 @@ import PagesContext from "../../pages/PagesContext";
 
 export default (props: any) => {
 
+  const {
+    customMargin
+  } = props;
+
   const cartContext = useContext(PagesContext);
 
   const cartItems = cartContext?.cartItems;
@@ -15,11 +19,12 @@ export default (props: any) => {
   })
 
   return (
-    <div className={classes.CartIcon}>
+    <div style={{margin: customMargin}}
+         className={classes.CartIcon}
+    >
       <Link to='/cart' className={classes.cart} >
         <img src={require('../../images/icons/bag.svg')} alt=""/>
       </Link>
-      <span className={classes.counter}>{numberOfItems}</span>
     </div>
   );
 };

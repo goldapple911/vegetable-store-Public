@@ -15,11 +15,13 @@ import PromoCarusel from "./PromoCarusel/PromoCarusel";
 import ScrollButton from "./ScrollButton/ScrollButton";
 import TeamInfo from "./TeamInfo/TeamInfo";
 import WidgetSearch from "./WidgetSearch/WidgetSearch";
+import OrderForm from "./OrderForm/OrderForm";
+import CartItemCard from "./CartItemCard/CartItemCard";
 
 export {
   ActiveItemModal,
   CartIcon,
-  // CartItemCard,
+  CartItemCard,
   CatalogueItemCard,
   CatalogueItems,
   CatalogueMenu,
@@ -30,6 +32,7 @@ export {
   HeaderSlider,
   LinkButton,
   Navigation,
+  OrderForm,
   PagePreloader,
   PromoCarusel,
   ScrollButton,

@@ -6,6 +6,11 @@ import cn from 'classnames';
 
 
 export default (props: any) => {
+
+  const {
+    customMargin
+  } = props;
+
   const navContext = useContext(PagesContext);
 
   const currentPages = navContext?.currentPages;
@@ -13,31 +18,34 @@ export default (props: any) => {
   let navigationWindowClass;
 
   if (navContext?.navigationClosed) {
-    navigationWindowClass = cn(classes.navigation__window, classes.navigation__close);
+    navigationWindowClass = cn(classes.window, classes.close);
   } else {
-    navigationWindowClass = cn(classes.navigation__window, classes.navigation__open);
+    navigationWindowClass = cn(classes.window, classes.open);
   }
 
   return (
-    <nav className={classes.navigation}>
-      <img className={classes.navigation__hamburger}
+    <nav
+         // style={{margin: customMargin}}
+         className={classes.Navigation}
+    >
+      <img className={classes.hamburger}
            src={require('../../images/icons/hamburger.svg')}
            alt=""
            onClick={navContext?.toggleNavigation}
       />
       <div className={navigationWindowClass}>
-        <img className={classes.navigation__cross}
+        <img className={classes.cross}
              src={require('../../images/icons/cross.svg')}
              alt=""
              onClick={navContext?.toggleNavigation}/>
-        <ul className={classes.navigation__list}>
+        <ul className={classes.list}>
           {currentPages?.map((page, index) => {
             return (
               <Link to={page.href}
-                    className={classes.navigation__link}
+                    className={classes.link}
                     key={index}
               >
-                <li className={classes.navigation__text}
+                <li className={classes.text}
                     onClick={navContext?.toggleNavigation}
                 >
                   {page.name}

@@ -1,11 +1,11 @@
-.navigation {
+.Navigation {
     width: 32px;
     height: 32px;
-    margin: 30px 17px 0;
+    /*margin: 30px 21px 0;*/
     position: relative;
 }
 
-.navigation__window {
+.window {
     height: 633px;
     top: -30px;
     left: -17px;
@@ -15,30 +15,30 @@
     overflow: hidden;
 }
 
-.navigation__open {
+.open {
     width: 386px;
     opacity: 1;
     transition: all 0.4s;
 }
 
-.navigation__close {
+.close {
     width: 0;
     opacity: 0;
     transition: all 0.4s;
 }
 
-.navigation__cross {
+.cross {
     position: absolute;
     top: 30px;
     right: 30px;
     cursor: pointer;
 }
 
-.navigation__hamburger {
+.hamburger {
     cursor: pointer;
 }
 
-.navigation__list {
+.list {
     position: absolute;
     list-style: none;
     padding: 0;
@@ -47,11 +47,11 @@
     top: 118px;
 }
 
-.navigation__link {
+.link {
     text-decoration: none;
 }
 
-.navigation__text {
+.text {
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 500;

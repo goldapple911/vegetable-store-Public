@@ -24,7 +24,7 @@ export default (props: any) => {
       <div className={'container'}>
         <div className={classes.header__holder}>
           <div className={classes.header__group}>
-            <Navigation/>
+            <Navigation customMargin='30px 21px 0'/>
             <HeaderSlider/>
           </div>
           <div className={classes.header__column}>
@@ -36,7 +36,7 @@ export default (props: any) => {
               />
               <span className={classes.header__vegan}>Vegan</span>
             </div>
-            <CartIcon/>
+            <CartIcon customMargin='29px 12px 33px 0'/>
             <LinkButton className={classes.header__link} text={'Каталог'}/>
             <HeaderPromoItems/>
           </div>

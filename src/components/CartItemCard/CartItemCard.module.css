@@ -1,3 +1,109 @@
-.volume_active {
-    color: #3d8b3d;
+.CatalogueItemCard {
+    background: #FEE8C5;
+    border-radius: 25px;
+    padding: 6px 14px 6px 6px;
+    width: 515px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 20px;
+}
+
+.holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 8px 0;
+}
+
+.cover {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 212px;
+    height: 122px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.title {
+    margin: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #1B1B1B;
+}
+
+.description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1B1B1B;
+}
+
+.paginator {
+    padding: 6px;
+    margin: 0;
+    font-size: 6px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.count {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #252525;
+    margin: 0 8px;
+}
+
+.remove {
+    background: #FFB634;
+    border-radius: 10px;
+    padding: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.cost_value {
+    font-style: normal;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    color: #1C1C1C;
+    margin-right: 4px;
 }
