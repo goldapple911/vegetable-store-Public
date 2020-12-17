@@ -11,9 +11,11 @@ export default () => {
       <li key={id}
           className={classes.item}
           onClick={() => {catalogueContext?.selectCataloguePage(item.id)}}
+          style={{backgroundImage: `url(${item.cover})`}}
       >
-        {item.name}
-        {item.id}
+        <div className={classes.title}>
+          {item.name}
+        </div>
       </li>
     )
   });

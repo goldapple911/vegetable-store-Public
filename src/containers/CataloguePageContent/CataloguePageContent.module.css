@@ -1,45 +1,37 @@
-.MainPageContent {
-  background-color: #FFFFFF;
-  background: url('../../images/backgrounds/main_page_bg.jpg') no-repeat top/contain;
+.CataloguePageContent {
+  padding-bottom: 120px;
 }
 
-.generator__container {
-  position: relative;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 250px 0;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column:nth-child(1) {
+  margin-right: 22px;
+}
+
+.banner {
+  width: 100%;
+  height: 128px;
+  background: #FEE8C5;
   border-radius: 20px;
-  background-color: #ee738d;
-  background: url('../../images/content/combogenerator.png') no-repeat center/cover;
-  text-align: center;
-}
-
-.text {
-  color: #1B1B1B;
-  font-size: 22px;
-  margin-top: 55px;
-  margin-bottom: 45px;
-}
-
-.link_button {
-  display: block;
-  max-width: 398px;
-  background-color: #fdcf7d;
-  margin: 0 auto; 
-  padding: 15px 0;
-  text-align: center;
-}
-
-.link_button__generator {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 508px;
-  max-width: 508px;
-}
-
-.link_button:hover {
-  background-color: #ffb229;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 64px;
 }

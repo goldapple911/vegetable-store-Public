@@ -5,7 +5,7 @@ import CataloguePage from './pages/CataloguePage/CataloguePage';
 import CartPage from './pages/CartPage/CartPage';
 import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
 import PagesContext from "./pages/PagesContext";
-import { find, isEqual, indexOf } from "lodash";
+import { find, isEqual, indexOf, compact } from "lodash";
 
 class App extends Component {
 
@@ -35,6 +35,7 @@ class App extends Component {
     currentPages: this.pagesList,
     totalCost: 0,
     packAsPresent: false,
+    filteredCatalogueItems: [],
   }
 
   appRootRef = React.createRef();
@@ -223,6 +224,36 @@ class App extends Component {
     })
   }
 
+  findMatchingItems = (currentFilters) => {
+    let searchingCategories;
+    compact(currentFilters.filters).length
+      ? searchingCategories = currentFilters.filters
+      : searchingCategories = this.state.catalogueCategories.map((category) => category.id)
+    const itemName = currentFilters.name;
+    let newFilteredItems = [];
+
+    for (let category of searchingCategories) {
+      this.state.catalogue[category].map((item) => {
+
+        const itemPrices = item.volumes.map((volume) => volume.price1);
+
+        const minPrice = Math.min.apply(null, itemPrices)
+        const maxPrice = Math.max.apply(null, itemPrices)
+
+        if (item.name.includes(itemName)
+            && currentFilters.minPrice <= minPrice
+            && currentFilters.maxPrice >= maxPrice) {
+          newFilteredItems.push(item);
+        }
+      })
+    }
+    this.setState({
+      ...this.state,
+      filteredCatalogueItems: newFilteredItems,
+    })
+    console.log(this.state.filteredCatalogueItems);
+  }
+
   render() {
 
     return (
@@ -247,6 +278,7 @@ class App extends Component {
                 cartItems: this.state.cartItems,
                 currentPages: this.state.currentPages,
                 totalCost: this.state.totalCost,
+                filteredCatalogueItems: this.state.filteredCatalogueItems,
                 toggleNavigation: this.toggleNavigation,
                 rotateHeaderCircle: this.rotateHeaderCircle,
                 getMainPageMedia: this.getMainPageMedia,
@@ -258,6 +290,7 @@ class App extends Component {
                 addItemToCart: this.addItemToCart,
                 removeItemFromCart: this.removeItemFromCart,
                 togglePackAsPresent: this.togglePackAsPresent,
+                findMatchingItems: this.findMatchingItems,
               }}
             >
               <Route path="/" exact component={MainPage} />

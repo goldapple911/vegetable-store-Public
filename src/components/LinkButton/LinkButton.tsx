@@ -5,7 +5,7 @@ import classes from './LinkButton.module.css';
 
 export default (props: any) => {
   return (
-    <Link to='/' className={`${classes.link} ${props.className}`} >
+    <Link to={props.href} className={`${classes.link} ${classes[props.class]}`} >
       {props.text}
     </Link>
   );

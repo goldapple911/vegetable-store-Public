@@ -4,9 +4,28 @@
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 36px;
-    line-height: 42px;
     color: #1B1B1B;
     border-radius: 18px;
-    transition: all 0.3s
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.link_cart {
+    background: #FDCF7D;
+    border-radius: 13px;
+    padding: 16px 34px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    display: inline-block;
+    width: 100%;
+}
+
+.link_header {
+    padding: 11px 0;
+    background: #F7C3D5;
+    border-radius: 18px;
+    width: 370px;
+    font-size: 30px;
+    line-height: 35px;
 }

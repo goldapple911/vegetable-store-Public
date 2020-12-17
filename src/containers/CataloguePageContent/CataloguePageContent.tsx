@@ -24,28 +24,39 @@ export default () => {
 
   if (catalogue && selectedPage) {
     // @ts-ignore
-    currentItems = catalogue[selectedPage]
+    currentItems = catalogue[selectedPage];
+  }
+  if (catalogueContext?.filteredCatalogueItems.length) {
+    currentItems = catalogueContext?.filteredCatalogueItems;
   }
 
   return (
     <main className={classes.CataloguePageContent}>
       <div className={"container"}>
-        <div className={classes.holder}>
+        <div className={classes.header}>
           <Navigation/>
           <CartIcon/>
         </div>
         <div className={classes.holder}>
-          <div className={classes.options}>
-            <CatalogueOptions
-              currentItems={catalogueContext?.catalogueCategories}
+          <div className={classes.column}>
+            <CatalogueOptions/>
+            <LinkButton href="/cart"
+                        text="Перейти в корзину"
+                        class="link_cart"
             />
-            <LinkButton/>
           </div>
-          {
-            currentItems
-              ? <CatalogueItems currentItems={currentItems}/>
-              : <CatalogueMenu/>
-          }
+          <div className={classes.column}>
+            <div className={classes.banner}
+
+            >
+
+            </div>
+            {
+              currentItems
+                ? <CatalogueItems currentItems={currentItems}/>
+                : <CatalogueMenu/>
+            }
+          </div>
         </div>
       </div>
       {

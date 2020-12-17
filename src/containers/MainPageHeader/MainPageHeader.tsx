@@ -37,7 +37,10 @@ export default (props: any) => {
               <span className={classes.header__vegan}>Vegan</span>
             </div>
             <CartIcon customMargin='29px 12px 33px 0'/>
-            <LinkButton className={classes.header__link} text={'Каталог'}/>
+            <LinkButton class="link_header"
+                        text="Каталог"
+                        href="/catalogue"
+            />
             <HeaderPromoItems/>
           </div>
         </div>

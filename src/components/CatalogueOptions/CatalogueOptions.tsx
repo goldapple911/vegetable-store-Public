@@ -27,26 +27,31 @@ export default (props: any) => {
   const initialFilters = {
     name: '',
     minPrice: 0,
-    maxPrice: catalogueMaxPrice,
+    maxPrice: Number(catalogueMaxPrice),
     filters: [''],
   }
 
-  const [currentFilters, setCurrentFilters] = useState(initialFilters)
+  const [currentFilters, setCurrentFilters] = useState(initialFilters);
+  
+  const catalogueCategories = CatalogueContext?.catalogueCategories
 
-  const {
-    currentItems
-  } = props
+  const findMatchingItems = (e: any) => {
+    e.preventDefault();
+    CatalogueContext?.findMatchingItems(currentFilters);
+  }
 
-  const itemsList = currentItems?.map((item: any, index: number) => {
+  const itemsList = catalogueCategories?.map((item: any, index: number) => {
     return (
-      <li key={index}>
+      <li className={classes.option} key={index}>
         <input type="checkbox"
+               className={classes.checkbox}
+               id={`categoryOption${index}`}
                onChange={() => {
                  let newFilters = [...currentFilters?.filters];
-                 if(currentFilters?.filters?.includes(item?.name)) {
-                   newFilters = without(newFilters, `${item.name}`)
+                 if(currentFilters?.filters?.includes(item?.id)) {
+                   newFilters = without(newFilters, `${item?.id}`)
                  } else {
-                   newFilters?.push(item.name);
+                   newFilters?.push(item?.id);
                  }
                  setCurrentFilters({
                    ...currentFilters,
@@ -54,18 +59,35 @@ export default (props: any) => {
                  });
                }}
         />
-        {item?.name}
+        <label className={classes.label}
+               htmlFor={`categoryOption${index}`}
+        >
+          {item?.name}
+        </label>
       </li>
     )
   })
 
   return (
-    <div className={classes.CatalogueOptions}>
-      <input type="text" className={classes.input}/>
-      <div className={classes.price_search}>
+    <form className={classes.CatalogueOptions}
+          onSubmit={(e: any) => {findMatchingItems(e)}}
+    >
+      <div className={classes.input}>
+        <label htmlFor="optionsInput" className={classes.input_icon}>
+          <img src={require('../../images/icons/search (2).svg')} alt=""/>
+        </label>
+        <input type="text" 
+               className={classes.input_field}
+               id="optionsInput"
+               placeholder="Поиск"
+        />
+      </div>
+      <h3 className={classes.subtitle}>Стоимость</h3>
+      <div className={classes.price}>
         <input type="text"
+               placeholder={'0'}
                className={classes.price_input}
-               value={currentFilters.minPrice }
+               value={currentFilters.minPrice}
                onChange={(e) => {
                  !e.target.value
                   ? setCurrentFilters({
@@ -73,14 +95,16 @@ export default (props: any) => {
                      minPrice: 0,
                    })
                   : get(e.target.value.match(/^[0-9]+/), '[0].length') === e.target.value?.length &&
+                    Number(e.target.value) <= currentFilters.maxPrice &&
                     setCurrentFilters({
                       ...currentFilters,
                       minPrice: Number(e.target.value),
                     });
                }}
         />
-        -
+        <img src={require('../../images/icons/dash.svg')} alt=""/>
         <input type="text"
+               placeholder={String(catalogueMaxPrice)}
                className={classes.price_input}
                value={currentFilters.maxPrice ? String(currentFilters.maxPrice) : ''}
                onChange={(e) => {
@@ -97,9 +121,10 @@ export default (props: any) => {
                }}
         />
       </div>
-      <ul>
+      <ul className={classes.list}>
         {itemsList}
       </ul>
-    </div>
+      <button className={classes.submit} type="submit">Поиск</button>
+    </form>
   )
 };

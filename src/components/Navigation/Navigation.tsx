@@ -25,7 +25,7 @@ export default (props: any) => {
 
   return (
     <nav
-         // style={{margin: customMargin}}
+         style={{margin: customMargin}}
          className={classes.Navigation}
     >
       <img className={classes.hamburger}

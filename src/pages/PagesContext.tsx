@@ -57,6 +57,13 @@ interface pageInfo {
   href: string,
 }
 
+interface itemsFilters {
+  name: string,
+  minPrice: number,
+  maxPrice: number,
+  filters: string[],
+}
+
 interface appInterface {
   navigationClosed: boolean,
   currentPromo: promoItem[], // TEST OPTION
@@ -75,6 +82,7 @@ interface appInterface {
   cartItems: cartItem[],
   currentPages: pageInfo[],
   totalCost: number,
+  filteredCatalogueItems: catalogueItem[],
   toggleNavigation(): any,
   rotateHeaderCircle(): any,
   getMainPageMedia(): any,
@@ -86,6 +94,7 @@ interface appInterface {
   addItemToCart(item: activeItem): any,
   removeItemFromCart(item: activeItem, sub: number): any,
   togglePackAsPresent(): any,
+  findMatchingItems(filters: itemsFilters): any,
 }
 
 const PagesContext = React.createContext<appInterface | null>(null);
