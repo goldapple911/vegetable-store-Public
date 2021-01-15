@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage';
-import CataloguePage from './pages/CataloguePage/CataloguePage';
-import CartPage from './pages/CartPage/CartPage';
+import {MainPage, CataloguePage, CartPage, PolicyPage, ContactPage} from "./pages"
 import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
 import PagesContext from "./pages/PagesContext";
 import { find, isEqual, indexOf, compact } from "lodash";
@@ -10,10 +8,12 @@ import { find, isEqual, indexOf, compact } from "lodash";
 class App extends Component {
 
   pagesList = [
-    {name: "Каталог", href: "/catalogue"},
-    {name: "О нас", href: "/about"},
-    {name: "Карзина", href: "/cart"},
     {name: "Главная", href: "/"},
+    {name: "Каталог", href: "/catalogue"},
+    {name: "Карзина", href: "/cart"},
+    {name: "О нас", href: "/about"},
+    {name: "Публичная оферта", href: "/policy"},
+    {name: "Контакты", href: "/contacts"}
   ]
 
   state = {
@@ -297,6 +297,8 @@ class App extends Component {
               <Route path="/catalogue" component={CataloguePage} />
               <Route path="/cart" component={CartPage} />
               <Route path="/about" component={CartPage} />
+              <Route path="/policy" component={PolicyPage} />
+              <Route path="/contacts" component={ContactPage} />
             </PagesContext.Provider>
           </Switch>
         </div>

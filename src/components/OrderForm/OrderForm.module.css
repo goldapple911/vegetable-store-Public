@@ -24,10 +24,21 @@
 .input {
     background: #FBFBFF;
     border-radius: 10px;
-    padding: 16px;
-    border: none;
+    padding: 14px;
+    border: 2px solid transparent;
     outline: none;
     margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.input_filled {
+    background: #D5617A !important;
+    border: 2px solid #D5617A;
+    color: #FFFFFF;
+}
+
+.input:focus {
+    border: 2px solid #D5617A;
 }
 
 .holder {
@@ -90,10 +101,11 @@
 }
 
 .submit:hover {
-    background: #ab536a;
+    background: #D5617A;
 }
 
 .submit:disabled {
-    background: #cdd2d2;
+    background: #F2F2F2;
+    color: #DBC3CB;
     pointer-events: none;
 }

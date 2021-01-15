@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import classes from "./Footer.module.css";
 import {Link} from "react-router-dom";
+import PagesContext from "../../pages/PagesContext";
 
 export default () => {
+
+  const footerContext = useContext(PagesContext);
+
+  const currentPages = footerContext?.currentPages;
+
   return (
     <footer className={classes.Footer}>
       <div className="container">
@@ -10,18 +16,19 @@ export default () => {
           <nav className={classes.navigation}>
             <h4 className={classes.subtitle}>Дом солнца</h4>
             <ul className={classes.list}>
-              <Link to='/' className={classes.link}>
-                <li className={classes.text}>Каталог</li>
-              </Link>
-              <Link to='/' className={classes.link}>
-                <li className={classes.text}>О проекте</li>
-              </Link>
-              <Link to='/' className={classes.link}>
-                <li className={classes.text}>Карзина</li>
-              </Link>
-              <Link to='/' className={classes.link}>
-                <li className={classes.text}>Главная</li>
-              </Link>
+              {currentPages?.map((page, index) => {
+                return (
+                  <Link to={page.href}
+                        className={classes.link}
+                        key={index}
+                  >
+                    <li className={classes.text}
+                    >
+                      {page.name}
+                    </li>
+                  </Link>
+                )
+              })}
             </ul>
 
           </nav>

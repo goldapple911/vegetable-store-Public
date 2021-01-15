@@ -54,7 +54,7 @@ export default () => {
               </div>
               <OrderForm/>
             </div>
-          : <h2>Добавьте что-нибудь в корзину</h2>
+          : <h2 className={classes.instruction}>Добавьте что-нибудь в корзину</h2>
         }
       </div>
     </main>
