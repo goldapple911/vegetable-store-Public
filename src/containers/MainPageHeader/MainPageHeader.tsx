@@ -20,21 +20,21 @@ export default (props: any) => {
   });
 
   return (
-    <div className={classes.header}>
+    <div className={classes.MainPageHeader}>
       <div className={'container'}>
-        <div className={classes.header__holder}>
-          <div className={classes.header__group}>
+        <div className={classes.holder}>
+          <div className={classes.group}>
             <Navigation customMargin='30px 21px 0'/>
             <HeaderSlider/>
           </div>
-          <div className={classes.header__column}>
-            <div className={classes.header__title}>
-              <img className={classes.header__circle}
+          <div className={classes.column}>
+            <div className={classes.title}>
+              <img className={classes.circle}
                    style={{transform: `rotate(${headerContext?.headerCircleRotation}deg)`}}
                    src={require('../../images/backgrounds/eco-product-circle.png')}
                    alt=""
               />
-              <span className={classes.header__vegan}>Vegan</span>
+              <span className={classes.vegan}>Vegan</span>
             </div>
             <CartIcon customMargin='29px 12px 33px 0'/>
             <LinkButton class="link_header"

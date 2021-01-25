@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {MainPage, CataloguePage, CartPage, PolicyPage, ContactPage} from "./pages"
+import {MainPage, CataloguePage, CartPage, PolicyPage, ContactPage, AboutPage} from "./pages"
 import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
 import PagesContext from "./pages/PagesContext";
 import { find, isEqual, indexOf, compact } from "lodash";
@@ -296,7 +296,7 @@ class App extends Component {
               <Route path="/" exact component={MainPage} />
               <Route path="/catalogue" component={CataloguePage} />
               <Route path="/cart" component={CartPage} />
-              <Route path="/about" component={CartPage} />
+              <Route path="/about" component={AboutPage} />
               <Route path="/policy" component={PolicyPage} />
               <Route path="/contacts" component={ContactPage} />
             </PagesContext.Provider>

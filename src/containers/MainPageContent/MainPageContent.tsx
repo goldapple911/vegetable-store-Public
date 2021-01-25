@@ -13,22 +13,24 @@ export default () => {
       <div className={'container'}>
         <p className={classes.text}>Мы поможем вам собрать эко-подарок для самых разных людей! С помощью нескольких фильтров мы вместе составим идеальный набор для конкретного человека</p>
 
-        <div className={classes.generator__container}>
-          <LinkButton
-            className={`${classes.link_button} ${classes.link_button__generator}`}
-            title="Собрать подарок"
-            text={'Собрать подарок'}
-          />
+        <div className={classes.generator_container}>
+          {/*<LinkButton*/}
+          {/*  className={`${classes.link_button} ${classes.link_button__generator}`}*/}
+          {/*  title="Собрать подарок"*/}
+          {/*  text={'Собрать подарок'}*/}
+          {/*/>*/}
         </div>
 
         <div className={classes.promocarusel_container}>
           <PromoCarusel />
         </div>
-        <LinkButton
-          className={classes.link_button}
-          title="Перейти в каталог"
-          text={'Перейти в каталог'}
-        />
+        <div className={classes.holder}>
+          <LinkButton
+            class="link_content"
+            text="Показать больше товаров"
+            href="/catalogue"
+          />
+        </div>
       </div>
       <TeamInfo/>
     </main>

@@ -1,4 +1,4 @@
-.header {
+.MainPageHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -6,25 +6,25 @@
   padding-bottom: 25px;
 }
 
-.header__holder {
+.holder {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.header__group {
+.group {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.header__column {
+.column {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-.header__title {
+.title {
   position: absolute;
   top: 633px;
   margin: 0 -750px;
@@ -33,7 +33,7 @@
   width: auto;
 }
 
-.header__circle {
+.circle {
   position: absolute;
   top: -300px;
   left: -150px;
@@ -42,7 +42,7 @@
   height: 870px;
 }
 
-.header__vegan {
+.vegan {
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -52,11 +52,11 @@
   color: #FFDEA3;
 }
 
-.header__link {
+.link {
   background-color: #F7C3D5;
 }
 
-.header__link:hover {
+.link:hover {
   background: #EE738D;
   color: #FFFFFF;
 }

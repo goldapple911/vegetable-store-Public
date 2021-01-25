@@ -29,3 +29,13 @@
     font-size: 30px;
     line-height: 35px;
 }
+
+.link_content {
+    background: #FDCF7D;
+    border-radius: 13px;
+    padding: 16px 34px;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    display: inline-block;
+}

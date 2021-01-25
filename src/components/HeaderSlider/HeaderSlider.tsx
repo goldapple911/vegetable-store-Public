@@ -32,9 +32,6 @@ export default () => {
         {currentSlides?.map((item, id) =>
           <SwiperSlide key={id}>
             <img className={classes.slider__item} src={item} alt=""/>
-            <p className={classes.slider__text}>Дом Солнце 	&#8211; кооператив. <br/> Мы с любовью изготавливаем <br/> все наши продукты, <br/> не забывая <br/> о здоровье планеты.
-            </p>
-            <img className={classes.slider__logo} src={require('../../images/header-slider/icon.png')} alt="" />
           </SwiperSlide>
         )}
       </Swiper>
