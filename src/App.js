@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {MainPage, CataloguePage, CartPage, PolicyPage, ContactPage, AboutPage} from "./pages"
+import {
+  MainPage,
+  CataloguePage,
+  CartPage,
+  PolicyPage,
+  ContactPage,
+  AboutPage,
+  DeliveryPage
+} from "./pages"
 import {firstPageMediaUrl, cataloguePageMediaUrl, catalogueUrl} from "./api/urls";
 import PagesContext from "./pages/PagesContext";
 import { find, isEqual, indexOf, compact } from "lodash";
@@ -12,8 +20,9 @@ class App extends Component {
     {name: "Каталог", href: "/catalogue"},
     {name: "Карзина", href: "/cart"},
     {name: "О нас", href: "/about"},
+    {name: "Оплата и доставка", href: "/delivery"},
     {name: "Публичная оферта", href: "/policy"},
-    {name: "Контакты", href: "/contacts"}
+    {name: "Контакты", href: "/contacts"},
   ]
 
   state = {
@@ -299,6 +308,7 @@ class App extends Component {
               <Route path="/about" component={AboutPage} />
               <Route path="/policy" component={PolicyPage} />
               <Route path="/contacts" component={ContactPage} />
+              <Route path="/delivery" component={DeliveryPage} />
             </PagesContext.Provider>
           </Switch>
         </div>
