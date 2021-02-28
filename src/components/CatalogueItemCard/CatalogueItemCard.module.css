@@ -30,7 +30,7 @@
     font-size: 16px;
     line-height: 19px;
     color: #1B1B1B;
-    margin: 0 0 8px 0;
+    margin: 2px 0 8px 0;
 }
 
 .type {
@@ -87,16 +87,18 @@
     margin-bottom: 12px;
 }
 
-.volume {
+.volume, .volume_active {
     border: 1px solid #1B1B1B;
     border-radius: 15px;
-    padding: 4px 7px;
+    padding: 0 7px;
+    height: 22px;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     color: #1B1B1B;
     background: transparent;
     transition: all 0.3s;
@@ -105,20 +107,9 @@
 }
 
 .volume_active {
-    border: 1px solid #1B1B1B;
-    border-radius: 15px;
-    padding: 4px 7px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    display: flex;
-    align-items: flex-end;
     color: #FFFFFF;
     background: #1B1B1B;
     transition: all 0.3s;
-    margin-right: 8px;
-    cursor: pointer;
 }
 
 .open {

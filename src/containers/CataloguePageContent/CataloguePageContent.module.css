@@ -35,3 +35,21 @@
   background-size: cover;
   margin-bottom: 64px;
 }
+
+.button {
+  width: 100%;
+  background: #F7C3D5;
+  border-radius: 13px;
+  padding: 16px 34px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 21px;
+  color: #252525;
+  font-family: Roboto, sans-serif;
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 20px;
+}

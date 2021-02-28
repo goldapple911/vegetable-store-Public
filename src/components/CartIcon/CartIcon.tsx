@@ -25,6 +25,7 @@ export default (props: any) => {
       <Link to='/cart' className={classes.cart} >
         <img src={require('../../images/icons/bag.svg')} alt=""/>
       </Link>
+      {numberOfItems > 0 && <div className={classes.count}>{numberOfItems}</div>}
     </div>
   );
 };

@@ -36,7 +36,11 @@
     width: 370px;
     height: 258px;
     background: #EE738D;
+}
+
+.promo__container {
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .promo__description {

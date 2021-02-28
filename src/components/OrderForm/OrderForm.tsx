@@ -110,7 +110,7 @@ export default (props: any) => {
   return (
     <form className={classes.OrderForm}
           onSubmit={(e: any) => checkData(e)}
-          action="https://formspree.io/f/xeqpvrvw"
+          action="https://formspree.io/f/xaylkanp"
           method="POST"
     >
       <h2 className={classes.title}>Куда отправлять?</h2>

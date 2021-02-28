@@ -28,14 +28,16 @@ export default (props: any) => {
   })
 
   const volumes = item.volumes.map((volume: any, index: number) => {
-    return (
-      <li key={index}
-          onClick={() => {setSelectedVolume(volume)}}
-          className={isEqual(selectedVolume, volume) ? classes.volume_active : classes.volume}
-      >
-        {volume.volume}
-      </li>
-    )
+    if (volume.volume) {
+      return (
+        <li key={index}
+            onClick={() => {setSelectedVolume(volume)}}
+            className={isEqual(selectedVolume, volume) ? classes.volume_active : classes.volume}
+        >
+          {volume.volume}
+        </li>
+      )
+    }
   })
 
   return (
@@ -53,10 +55,7 @@ export default (props: any) => {
       </div>
       <div className={classes.options}>
         <div className={classes.holder}>
-          <div className={classes.column}>
-            <span className={classes.type}>{item.type}</span>
-            <h2 className={classes.title}>{item.name}</h2>
-          </div>
+          <span className={classes.type}>{item.type}</span>
           <div className={classes.count}>
             <button className={classes.counter}
                     onClick={() => catalogueContext?.removeItemFromCart({item, selectedVolume}, 1)}
@@ -71,8 +70,9 @@ export default (props: any) => {
             </button>
           </div>
         </div>
+        <h2 className={classes.title}>{item.name}</h2>
         <ul className={classes.list}>
-          { volumes }
+          {item.volumes.length && volumes }
         </ul>
         <div className={classes.column}>
           <h2 className={classes.title}>{selectedVolume.price1} руб</h2>

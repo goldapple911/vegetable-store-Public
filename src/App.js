@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   MainPage,
   CataloguePage,
@@ -18,7 +18,7 @@ class App extends Component {
   pagesList = [
     {name: "Главная", href: "/"},
     {name: "Каталог", href: "/catalogue"},
-    {name: "Карзина", href: "/cart"},
+    {name: "Корзина", href: "/cart"},
     {name: "О нас", href: "/about"},
     {name: "Оплата и доставка", href: "/delivery"},
     {name: "Публичная оферта", href: "/policy"},
@@ -260,7 +260,6 @@ class App extends Component {
       ...this.state,
       filteredCatalogueItems: newFilteredItems,
     })
-    console.log(this.state.filteredCatalogueItems);
   }
 
   render() {

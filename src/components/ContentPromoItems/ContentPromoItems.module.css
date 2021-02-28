@@ -15,7 +15,10 @@
   margin-right: 15px;
 }
 
-.promo__cover {}
+.promo__container {
+  border-radius: 20px;
+  overflow: hidden;
+}
 
 .promo__link {
   position: relative;

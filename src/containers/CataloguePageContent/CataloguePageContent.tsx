@@ -17,13 +17,12 @@ export default () => {
   const catalogueContext = useContext(PagesContext);
 
   const selectedPage = catalogueContext?.selectedCataloguePage;
-  const catalogue = catalogueContext?.catalogue;
+  const catalogue: any = catalogueContext?.catalogue;
   const activeItem = catalogueContext?.activeItem;
 
   let currentItems;
 
   if (catalogue && selectedPage) {
-    // @ts-ignore
     currentItems = catalogue[selectedPage];
   }
   if (catalogueContext?.filteredCatalogueItems.length) {
@@ -44,13 +43,15 @@ export default () => {
                         text="Перейти в корзину"
                         class="link_cart"
             />
+            {currentItems &&
+              <button className={classes.button}
+                      onClick={() => catalogueContext?.selectCataloguePage("")}>
+                Вернуться в каталог
+              </button>
+            }
           </div>
           <div className={classes.column}>
-            <div className={classes.banner}
-
-            >
-
-            </div>
+            <div className={classes.banner}/>
             {
               currentItems
                 ? <CatalogueItems currentItems={currentItems}/>

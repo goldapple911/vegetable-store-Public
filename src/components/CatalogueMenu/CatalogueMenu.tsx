@@ -10,7 +10,7 @@ export default () => {
     return (
       <li key={id}
           className={classes.item}
-          onClick={() => {catalogueContext?.selectCataloguePage(item.id)}}
+          onClick={() => {catalogueContext?.selectCataloguePage(item.id); console.log(item.id)}}
           style={{backgroundImage: `url(${item.cover})`}}
       >
         <div className={classes.title}>

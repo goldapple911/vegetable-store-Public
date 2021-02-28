@@ -38,7 +38,7 @@ interface catalogueInterface {
   forBody: catalogueItem[],
   forFace: catalogueItem[],
   relatedProducts: catalogueItem[],
-  zeroWaste: catalogueItem[],
+  soap: catalogueItem[],
   forHome: catalogueItem[],
 }
 

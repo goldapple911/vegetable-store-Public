@@ -46,7 +46,7 @@ export default () => {
             Пишите нам на почту
             <br/>
             <br/>
-            domsolnca@yandex.ru
+            solncedom86@gmail.com
           </div>
         </div>
       </div>
