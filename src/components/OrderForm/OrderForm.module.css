@@ -1,0 +1,146 @@
+.OrderForm {
+    background: #F7C3D5;
+    border-radius: 20px;
+    padding: 16px 20px 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    font-family: Roboto,sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+    color: #1B1B1B;
+    margin: 0 auto 30px;
+}
+
+.input {
+    background: #FBFBFF;
+    border-radius: 10px;
+    padding: 14px;
+    border: 2px solid transparent;
+    outline: none;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.input_filled {
+    background: #D5617A !important;
+    border: 2px solid #D5617A;
+    color: #FFFFFF;
+}
+
+.input:focus {
+    border: 2px solid #D5617A;
+}
+
+.holder {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.input:nth-child(1), .input:nth-child(2){
+    width: 100%;
+}
+
+.input:nth-child(3) {
+    width: 182px;
+}
+
+.input:nth-child(4), .input:nth-child(8) {
+    width: 162px;
+}
+
+.input:nth-child(n+5):nth-child(-n+7) {
+    width: 50px;
+}
+
+.input:nth-child(n+9) {
+    width: 100%;
+}
+
+.input:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.remove {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+}
+
+.submit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #EE738D;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+}
+
+.submit:hover {
+    background: #D5617A;
+}
+
+.submit:disabled {
+    background: #F2F2F2;
+    color: #DBC3CB;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 769px) {
+    .OrderForm {
+        margin: 32px auto 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .OrderForm {
+        width: 100%;
+        left: 0;
+        padding: 16px calc((100vw - 342px)/2) 90px;;
+    }
+
+    .input:nth-child(1), .input:nth-child(2){
+        width: 100%;
+    }
+
+    .input:nth-child(3) {
+        width: 150px;
+    }
+
+    .input:nth-child(4), .input:nth-child(8) {
+        width: 150px;
+    }
+
+    .input:nth-child(n+5):nth-child(-n+7) {
+        width: 45px;
+    }
+
+    .input:nth-child(n+9) {
+        width: 100%;
+    }
+}
+

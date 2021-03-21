@@ -1,0 +1,45 @@
+.PayForm {
+  width: 400px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 28px;
+  color: #1B1B1B;
+  margin: 0 0 20px;
+}
+
+.text {
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #1B1B1B;
+  margin: 0;
+  text-align: center;
+}
+
+.button {
+  margin: 0;
+  width: 100%;
+  padding: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EE738D;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}

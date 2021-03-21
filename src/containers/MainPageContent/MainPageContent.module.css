@@ -1,44 +1,64 @@
 .MainPageContent {
-  background-color: #fff;
+  background-color: #FFFFFF;
+  background: url('../../images/backgrounds/main_page_bg.jpg') repeat center/contain;
+  padding-top: 80px;
 }
 
-.generator__container {
+.generator_container {
   position: relative;
   max-width: 1080px;
   margin: 0 auto;
   padding: 250px 0;
   border-radius: 20px;
   background-color: #ee738d;
-  background: url('../../images/content/combogenerator.png') no-repeat center/cover;
+  background: url('../../images/content/combogenerator.jpg') no-repeat center/cover;
   text-align: center;
 }
 
 .text {
   color: #1B1B1B;
   font-size: 22px;
-  margin-top: 55px;
+  margin-top: 0;
   margin-bottom: 45px;
 }
 
-.link_button {
-  display: block;
-  max-width: 398px;
-  background-color: #fdcf7d;
-  margin: 0 auto; 
-  padding: 15px 0;
-  text-align: center;
+.holder {
+  display: flex;
+  justify-content: center;
 }
 
-.link_button__generator {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 508px;
-  max-width: 508px;
+.title {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 47px;
+  color: #1B1B1B;
 }
 
-.link_button:hover {
-  background-color: #ffb229;
+@media screen and (max-width: 769px) {
+  .generator_container {
+    padding: 0;
+    height: 370px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .MainPageContent {
+    padding: 0;
+    position: relative;
+    background: #FFFFFF;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .generator_container {
+    position: absolute;
+    height: 240px;
+    width: 100%;
+    top: 180px;
+    left: 0;
+    border-radius: 0;
+  }
 }

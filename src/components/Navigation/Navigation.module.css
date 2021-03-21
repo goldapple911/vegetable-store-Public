@@ -1,57 +1,57 @@
-.navigation {
+.Navigation {
     width: 32px;
     height: 32px;
-    margin: 30px 17px 0;
+    /*margin: 30px 21px 0;*/
     position: relative;
 }
 
-.navigation__window {
+.window {
     height: 633px;
     top: -30px;
     left: -17px;
     background: #F7C3D5;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
 }
 
-.navigation__open {
+.open {
     width: 386px;
     opacity: 1;
     transition: all 0.4s;
 }
 
-.navigation__close {
+.close {
     width: 0;
     opacity: 0;
     transition: all 0.4s;
 }
 
-.navigation__cross {
+.cross {
     position: absolute;
     top: 30px;
     right: 30px;
     cursor: pointer;
 }
 
-.navigation__hamburger {
+.hamburger {
     cursor: pointer;
 }
 
-.navigation__list {
+.list {
     position: absolute;
     list-style: none;
     padding: 0;
     margin: 0;
     left: 66px;
-    top: 118px;
+    top: 90px;
 }
 
-.navigation__link {
+.link {
     text-decoration: none;
 }
 
-.navigation__text {
+.text {
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -59,4 +59,5 @@
     line-height: 42px;
     color: #FFFFFF;
     margin-bottom: 24px;
+    width: 70%;
 }

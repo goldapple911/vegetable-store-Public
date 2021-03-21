@@ -1,30 +1,38 @@
-import React, {useContext, useEffect} from 'react';
-import MainPageHeader from '../../containers/MainPageHeader/MainPageHeader';
-import MainPageContent from '../../containers/MainPageContent/MainPageContent';
-import MainPageWidgets from '../../containers/MainPageWidgets/MainPageWidgets';
-import Footer from '../../components/Footer/Footer';
-import MainPageContext from "./MainPageContext";
-import PagePreloader from "../../components/PagePreloader/PagePreloader";
+import React, { useEffect } from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { mainPageStore } from '../../store';
+import {
+  MainPageHeader,
+  MainPageContent,
+  MainPageWidgets,
+} from '../../containers';
+import {
+  PagePreloader,
+  ScrollButton,
+  Footer,
+} from '../../components'
 
-export default () => {
-  const context = useContext(MainPageContext);
-  const mediaLoading = context.mediaLoading;
+const MainPage = observer(() => {
+  useEffect(() => {
+    mainPageStore.loadMainPageMedia()
+  }, []);
 
-   useEffect( ()  => {
-     context.getMainPageMedia()
-  }, [])
+  const mediaLoading = toJS(mainPageStore).mediaLoading;
 
   return (
     <>
       {mediaLoading
         ? <PagePreloader/>
         : <>
-          <MainPageHeader />
-          <MainPageContent />
-          <MainPageWidgets />
+          <ScrollButton/>
+          <MainPageHeader/>
+          <MainPageContent/>
+          <MainPageWidgets/>
           <Footer />
-        </>
-      }
+        </>}
     </>
   );
-};
+});
+
+export { MainPage };

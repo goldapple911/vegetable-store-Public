@@ -1,0 +1,157 @@
+.CatalogueOptions {
+    background: #EE738D;
+    border-radius: 0 20px 20px 0;
+    padding: 33px;
+    display: inline-block;
+    width: 274px;
+    margin-bottom: 50px;
+}
+
+.input {
+    position: relative;
+}
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.input_icon {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.input_field {
+    background: #D5617A;
+    border-radius: 12px;
+    padding: 15px 15px 15px 55px;
+    border: none;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    width: 208px;
+    color: #FFFFFF;
+}
+
+.subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    color: #FFFFFF;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price_input {
+    background: #EE738D;
+    width: 76px;
+    padding: 10px;
+    border: 2px solid #FFFFFF;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    outline: none;
+}
+
+.price_input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.submit {
+    background: #FDCF7D;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: #252525;
+    cursor: pointer;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+}
+
+.checkbox {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    margin: 0;
+}
+
+.checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    z-index: 2;
+}
+.checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    z-index: 2;
+}
+
+.checkbox:checked+label::before {
+    background-color: #FFFFFF;
+    /*background-image: url("");*/
+}
+
+.label {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    text-transform: lowercase;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 5px 0;
+    position: relative;
+}
+
+@media screen and (max-width: 769px) {
+    .CatalogueOptions {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .CatalogueOptions {
+        width: 100%;
+        border-radius: 20px;
+    }
+}

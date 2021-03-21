@@ -1,4 +1,76 @@
 .TeamInfo {
   background-color: #f7c3d5;
-  padding: 400px;
+  padding: 60px 0 100px;
+  margin-top: 70px;
+  overflow: hidden;
+}
+
+.list {
+  margin: 52px 0 0 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  position: relative;
+}
+
+.title {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 60px;
+  margin: 0;
+  text-align: center;
+}
+
+.item {
+  padding: 10px;
+  background: #EE738D;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  z-index: 2;
+}
+
+.photo {
+  border-radius: 14px;
+  margin-bottom: 28px;
+}
+
+.name {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.circle_right {
+  position: absolute;
+  top: -328px;
+  right: -500px;
+}
+
+.circle_left {
+  position: absolute;
+  bottom: -394px;
+  left: -645px;
+}
+
+.container {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+@media screen and (max-width: 380px) {
+  .circle_left {
+    display: none;
+  }
+
+  .circle_right {
+    display: none;
+  }
 }

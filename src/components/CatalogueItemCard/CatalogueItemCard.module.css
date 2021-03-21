@@ -1,0 +1,141 @@
+.CatalogueItemCard {
+    width: 252px;
+    height: 312px;
+    background: #FEE8C5;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 14px;
+}
+
+.cover {
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.options {
+    height: 50%;
+    padding: 12px 12px 20px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1B1B1B;
+    margin: 2px 0 8px 0;
+}
+
+.type {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1B1B1B;
+}
+
+.holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #252525;
+}
+
+.counter {
+    width: 18px;
+    height: 18px;
+    background: #FFFFFF;
+    border-radius: 9px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+}
+
+.counter:nth-child(1) {
+    margin-right: 6px;
+}
+
+.counter:nth-child(2) {
+    margin-left: 6px;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.volume, .volume_active {
+    border: 1px solid #1B1B1B;
+    border-radius: 15px;
+    padding: 0 7px;
+    height: 22px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1B1B1B;
+    background: transparent;
+    transition: all 0.3s;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.volume_active {
+    color: #FFFFFF;
+    background: #1B1B1B;
+    transition: all 0.3s;
+}
+
+.open {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+    .CatalogueItemCard {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .CatalogueItemCard {
+        width: 164px;
+        height: 394px;
+    }
+
+    .list {
+        flex-wrap: wrap;
+    }
+
+    .volume {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,14 @@
+.ScrollButton {
+    position: fixed;
+    top: 50vh;
+    right: 50px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #EE738D;
+    border: none;
+    margin: -27px;
+    cursor: pointer;
+    outline: none;
+    z-index: 4;
+}
