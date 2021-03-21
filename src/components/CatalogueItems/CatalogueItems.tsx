@@ -1,6 +1,6 @@
 import React from 'react';
-import { CatalogueItemCard } from "../../components"
-import classes from "./CatalogueItems.module.css";
+import { CatalogueItemCard } from '../../components'
+import classes from './CatalogueItems.module.css';
 
 export default (props: any) => {
 
@@ -10,7 +10,10 @@ export default (props: any) => {
 
   const productItems = currentItems.map((item: any, id: number) => {
     return (
-      <CatalogueItemCard item={item} key={id}/>
+      <CatalogueItemCard
+        item={item}
+        key={id}
+      />
     )
   });
 

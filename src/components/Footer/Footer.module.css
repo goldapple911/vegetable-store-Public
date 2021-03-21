@@ -55,3 +55,17 @@
 .social_link:not(:last-child) {
     margin-right: 34px;
 }
+
+@media screen and (max-width: 380px) {
+    .navigation {
+        display: none;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .holder {
+        justify-content: center;
+    }
+}

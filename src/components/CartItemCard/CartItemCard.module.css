@@ -107,3 +107,21 @@
     color: #1C1C1C;
     margin-right: 4px;
 }
+
+@media screen and (max-width: 769px) {
+    .CatalogueItemCard {
+        width: 515px;
+        margin: 12px auto;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .CatalogueItemCard {
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    .cover {
+        width: 122px;
+    }
+}

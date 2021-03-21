@@ -61,7 +61,7 @@
     width: 18px;
     height: 18px;
     background: #FFFFFF;
-    border-radius: 50%;
+    border-radius: 9px;
     border: none;
     display: flex;
     justify-content: center;
@@ -117,4 +117,25 @@
     top: 15px;
     right: 15px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+    .CatalogueItemCard {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .CatalogueItemCard {
+        width: 164px;
+        height: 394px;
+    }
+
+    .list {
+        flex-wrap: wrap;
+    }
+
+    .volume {
+        margin-bottom: 10px;
+    }
 }

@@ -4,35 +4,35 @@ import {
   PromoCarusel,
   LinkButton,
   TeamInfo,
-} from "../../components"
+} from '../../components';
 
-export default () => {
-
-  return (
-    <main className={classes.MainPageContent}>
-      <div className={'container'}>
-        <p className={classes.text}>Мы поможем вам собрать эко-подарок для самых разных людей! С помощью нескольких фильтров мы вместе составим идеальный набор для конкретного человека</p>
-
-        <div className={classes.generator_container}>
-          {/*<LinkButton*/}
-          {/*  className={`${classes.link_button} ${classes.link_button__generator}`}*/}
-          {/*  title="Собрать подарок"*/}
-          {/*  text={'Собрать подарок'}*/}
-          {/*/>*/}
-        </div>
-
-        <div className={classes.promocarusel_container}>
-          <PromoCarusel />
-        </div>
-        <div className={classes.holder}>
-          <LinkButton
-            class="link_content"
-            text="Показать больше товаров"
-            href="/catalogue"
-          />
-        </div>
+export default () => (
+  <main className={classes.MainPageContent}>
+    <div className="container">
+      <h2 className={classes.title}>
+        Покупать больше — выгоднее!
+      </h2>
+      <p className={classes.text}>
+        При покупке трёх одинаковых товаров — скидка 10%
+      </p>
+      <div className={classes.generator_container}>
+        {/* <LinkButton */}
+        {/*  className={`${classes.link_button} ${classes.link_button__generator}`} */}
+        {/*  title="Собрать подарок" */}
+        {/*  text={'Собрать подарок'} */}
+        {/* /> */}
       </div>
-      <TeamInfo/>
-    </main>
-  )
-};
+      <div className={classes.promocarusel_container}>
+        <PromoCarusel/>
+      </div>
+      <div className={classes.holder}>
+        <LinkButton
+          class="link_content"
+          text="Показать больше товаров"
+          href="/catalogue"
+        />
+      </div>
+    </div>
+    <TeamInfo/>
+  </main>
+);

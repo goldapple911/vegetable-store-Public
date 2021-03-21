@@ -57,3 +57,17 @@ input::placeholder {
     line-height: 28px;
     color: #000000;
 }
+
+@media screen and (max-width: 769px) {
+    .title {
+        font-size: 30px;
+        line-height: 35px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .title {
+        font-size: 26px;
+        line-height: 30px;
+    }
+}

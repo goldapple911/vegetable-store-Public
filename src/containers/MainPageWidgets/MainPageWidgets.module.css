@@ -48,3 +48,49 @@
     height: 130px;
     background: url("../../images/widgets/podcasts.png") no-repeat center/contain;
 }
+
+@media screen and (max-width: 769px) {
+    .title {
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .logo {
+        width: 229px;
+        height: 85px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .title {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .holder {
+        width: 100%;
+    }
+
+    .logo {
+        width: 112px;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .podcasts {
+        width: 90px;
+        height: 90px;
+        margin-top: 20px;
+    }
+}

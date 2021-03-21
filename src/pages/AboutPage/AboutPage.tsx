@@ -1,14 +1,10 @@
 import React from 'react';
-import {Footer} from '../../components';
-import AboutPageContent from "../../containers/AboutPageContent/AboutPageContent";
+import { Footer } from '../../components';
+import AboutPageContent from '../../containers/AboutPageContent/AboutPageContent';
 
-
-export default () => {
-
-  return (
-    <>
-      <AboutPageContent/>
-      <Footer/>
-    </>
-  );
-};
+export default () => (
+  <>
+    <AboutPageContent />
+    <Footer />
+  </>
+);

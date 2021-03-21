@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background: linear-gradient(to bottom, #FFFFFF 633px, #FEE8C5 45%);
-  padding-bottom: 25px;
+  background: linear-gradient(to bottom, #FFFFFF 838px, #FEE8C5 45%);
+  padding-bottom: 80px;
 }
 
 .holder {
@@ -26,7 +26,7 @@
 
 .title {
   position: absolute;
-  top: 633px;
+  top: 838px;
   margin: 0 -750px;
   z-index: 0;
   left: 50%;
@@ -59,4 +59,48 @@
 .link:hover {
   background: #EE738D;
   color: #FFFFFF;
+}
+
+@media screen and (max-width: 769px) {
+  .MainPageHeader {
+    background: linear-gradient(to bottom, #FFFFFF 630px, #FEE8C5 45%);
+  }
+  .title {
+    left: 750px;
+    top: 575px;
+  }
+  .vegan {
+    font-size: 238px;
+    line-height: 280px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .MainPageHeader {
+    background: linear-gradient(to bottom, #FFFFFF 500px, #FEE8C5 10%);
+    padding-bottom: 0;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .holder {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+    padding: 500px 0 0;
+  }
+
+  .vegan {
+    font-size: 116px;
+    line-height: 141px;
+  }
+
+  .title {
+    top: 470px;
+  }
 }

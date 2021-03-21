@@ -1,20 +1,23 @@
-import React, {useContext, useEffect, useState} from 'react';
-import PagesContext from "../../pages/PagesContext";
-import classes from "./ActiveItemModal.module.css"
-import {compact, isEqual} from "lodash";
+import React, { useEffect, useState } from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { compact, isEqual } from 'lodash';
+import { CartItem, ActiveItem } from "../../interfaces";
+import { catalogueStore, cartStore } from '../../store';
 
-export default (props: any) => {
+import classes from './ActiveItemModal.module.css'
 
-  const catalogueContext = useContext(PagesContext);
+const ActiveItemModal = observer(() => {
 
-  const activeItem = catalogueContext?.activeItem;
-  const cartItems = catalogueContext?.cartItems;
+  //@ts-ignore
+  const activeItem: ActiveItem = toJS(catalogueStore.activeItem);
+  const cartItems = toJS(cartStore).cartItems;
 
   const [currentCount, setCurrentCount] = useState(0)
 
   useEffect(() => {
     const newCount = compact(
-      cartItems?.map((cartItem) => {
+      cartItems?.map((cartItem: CartItem) => {
         if (isEqual(cartItem.item.selectedVolume, activeItem?.selectedVolume)
           && cartItem.item.item.name === activeItem?.item.name) {
           return cartItem.count;
@@ -22,7 +25,7 @@ export default (props: any) => {
       })
     )[0]
     newCount ? setCurrentCount(newCount) : setCurrentCount(0);
-  })
+  }, [cartItems, activeItem])
 
   return (
     <div className={classes.ActiveItemModal}>
@@ -32,10 +35,11 @@ export default (props: any) => {
             <h3 className={classes.subtitle}>{activeItem?.item?.type}</h3>
             <h2 className={classes.title}>{activeItem?.item?.name}</h2>
           </div>
-          <img src={require('../../images/icons/cross_black.svg')}
-               alt=""
-               onClick={() => catalogueContext?.selectActiveItem(null)}
-               className={classes.close}
+          <img
+            src={require('../../images/icons/cross_black.svg')}
+            alt=""
+            onClick={() => catalogueStore.selectActiveItem(null)}
+            className={classes.close}
           />
         </div>
         <div className={classes.holder}>
@@ -44,9 +48,10 @@ export default (props: any) => {
               {
                 activeItem?.item.volumes.map((volume, index) => {
                   return (
-                    <li key={index}
-                        className={activeItem?.selectedVolume === volume ? classes.volume_active : classes.volume}
-                        onClick={() => {catalogueContext?.changeActiveVolume(volume)}}
+                    <li
+                      key={index}
+                      className={isEqual(activeItem?.selectedVolume, volume) ? classes.volume_active : classes.volume}
+                      onClick={() => {catalogueStore.changeActiveVolume(volume)}}
                     >
                       {volume.volume}
                     </li>
@@ -54,8 +59,9 @@ export default (props: any) => {
                 })
               }
             </ul>
-            <div className={classes.cover}
-                 style={{backgroundImage: `url(${activeItem?.item.cover})`}}
+            <div
+              className={classes.cover}
+              style={{ backgroundImage: `url(${activeItem?.item.cover})` }}
             />
           </div>
           <div className={classes.column}>
@@ -64,16 +70,24 @@ export default (props: any) => {
             <div className={classes.add}>
               <h3 className={classes.add_title}>Добавить в корзину</h3>
               <div className={classes.count}>
-                <button className={classes.counter}
-                        onClick={() => activeItem && catalogueContext?.removeItemFromCart(activeItem, 1)}
+                <button
+                  className={classes.counter}
+                  onClick={() => activeItem && cartStore.removeItemFromCart(activeItem, 1)}
                 >
-                  <img src={require('../../images/icons/minus_pink.svg')} alt=""/>
+                  <img
+                    src={require('../../images/icons/minus_pink.svg')}
+                    alt=""
+                  />
                 </button>
                 {currentCount || 0}
-                <button className={classes.counter}
-                        onClick={() => activeItem && catalogueContext?.addItemToCart(activeItem)}
+                <button
+                  className={classes.counter}
+                  onClick={() => activeItem && cartStore.addItemToCart(activeItem)}
                 >
-                  <img src={require('../../images/icons/plus_pink.svg')} alt=""/>
+                  <img
+                    src={require('../../images/icons/plus_pink.svg')}
+                    alt=""
+                  />
                 </button>
               </div>
             </div>
@@ -86,4 +100,6 @@ export default (props: any) => {
       </div>
     </div>
   );
-};
+});
+
+export { ActiveItemModal };

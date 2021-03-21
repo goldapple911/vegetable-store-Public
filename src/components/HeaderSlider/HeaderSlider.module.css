@@ -1,6 +1,6 @@
 .slider {
-    width: 528px;
-    height: 633px;
+    width: 588px;
+    height: 708px;
     animation: appearance 0.3s ease-in 1;
     animation-fill-mode: both;
     z-index: 2;
@@ -18,6 +18,9 @@
 }
 
 .slider__item {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     width: 100%;
     height: 100%;
 }
@@ -29,7 +32,6 @@
     font-size: 44px;
     line-height: 52px;
     color: #FFFFFF;
-
     position: absolute;
     top: 0;
     margin: 0;
@@ -40,4 +42,22 @@
     position: absolute;
     left: 26px;
     bottom: 156px;
+    z-index: 999;
+}
+
+@media screen and (max-width: 769px) {
+    .slider {
+        width: 416px;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .slider {
+        position: absolute;
+        width: 100%;
+        height: 370px;
+        left: 0;
+        border-radius: 0;
+    }
 }

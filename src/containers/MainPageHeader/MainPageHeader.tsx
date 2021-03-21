@@ -1,15 +1,15 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
+import PagesContext from '../../pages/PagesContext';
 import {
-  Navigation,
   HeaderSlider,
-  CartIcon,
   LinkButton,
   HeaderPromoItems,
-} from "../../components"
-import PagesContext from "../../pages/PagesContext";
+  Header,
+} from '../../components'
+
 import classes from './MainPageHeader.module.css'
 
-export default (props: any) => {
+export default () => {
 
   const headerContext = useContext(PagesContext);
 
@@ -21,25 +21,24 @@ export default (props: any) => {
 
   return (
     <div className={classes.MainPageHeader}>
-      <div className={'container'}>
+      <div className="container">
+        <Header/>
         <div className={classes.holder}>
-          <div className={classes.group}>
-            <Navigation customMargin='30px 21px 0'/>
-            <HeaderSlider/>
-          </div>
+          <HeaderSlider/>
           <div className={classes.column}>
             <div className={classes.title}>
-              <img className={classes.circle}
-                   style={{transform: `rotate(${headerContext?.headerCircleRotation}deg)`}}
-                   src={require('../../images/backgrounds/eco-product-circle.png')}
-                   alt=""
+              <img
+                className={classes.circle}
+                style={{ transform: `rotate(${headerContext?.headerCircleRotation}deg)` }}
+                src={require('../../images/backgrounds/eco-product-circle.png')}
+                alt=""
               />
               <span className={classes.vegan}>Vegan</span>
             </div>
-            <CartIcon customMargin='29px 12px 33px 0'/>
-            <LinkButton class="link_header"
-                        text="Каталог"
-                        href="/catalogue"
+            <LinkButton
+              class="link_header"
+              text="Каталог"
+              href="/catalogue"
             />
             <HeaderPromoItems/>
           </div>

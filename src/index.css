@@ -22,3 +22,15 @@ code {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media screen and (max-width: 769px) {
+  .container {
+    width: 728px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container {
+    width: 342px;
+  }
+}

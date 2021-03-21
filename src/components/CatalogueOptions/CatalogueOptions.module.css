@@ -142,3 +142,16 @@
     padding: 5px 0;
     position: relative;
 }
+
+@media screen and (max-width: 769px) {
+    .CatalogueOptions {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .CatalogueOptions {
+        width: 100%;
+        border-radius: 20px;
+    }
+}

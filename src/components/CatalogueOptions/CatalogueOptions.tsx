@@ -1,13 +1,14 @@
-import React, {useState, useContext} from 'react';
-import classes from "./CatalogueOptions.module.css";
-import {without, compact, get} from "lodash"
-import PagesContext from "../../pages/PagesContext";
+import React, { useState, useContext } from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { without, compact, get } from 'lodash'
+import PagesContext from '../../pages/PagesContext';
+import { catalogueStore } from '../../store';
 
-export default (props: any) => {
+import classes from './CatalogueOptions.module.css';
 
-  const CatalogueContext = useContext(PagesContext);
-
-  const catalogue = CatalogueContext?.catalogue;
+const CatalogueOptions = observer(() => {
+  const catalogue = toJS(catalogueStore).catalogue;
 
   let catalogueMaxPrice
 
@@ -33,20 +34,24 @@ export default (props: any) => {
 
   const [currentFilters, setCurrentFilters] = useState(initialFilters);
   
-  const catalogueCategories = CatalogueContext?.catalogueCategories
+  const catalogueCategories = toJS(catalogueStore).catalogueCategories
 
   const findMatchingItems = (e: any) => {
     e.preventDefault();
-    CatalogueContext?.findMatchingItems(currentFilters);
+    catalogueStore.findMatchingItems(currentFilters);
   }
 
   const itemsList = catalogueCategories?.map((item: any, index: number) => {
     return (
-      <li className={classes.option} key={index}>
-        <input type="checkbox"
-               className={classes.checkbox}
-               id={`categoryOption${index}`}
-               onChange={() => {
+      <li
+        className={classes.option}
+        key={index}
+      >
+        <input
+          type="checkbox"
+          className={classes.checkbox}
+          id={`categoryOption${index}`}
+          onChange={() => {
                  let newFilters = [...currentFilters?.filters];
                  if(currentFilters?.filters?.includes(item?.id)) {
                    newFilters = without(newFilters, `${item?.id}`)
@@ -57,10 +62,11 @@ export default (props: any) => {
                    ...currentFilters,
                    filters: compact(newFilters),
                  });
-               }}
+          }}
         />
-        <label className={classes.label}
-               htmlFor={`categoryOption${index}`}
+        <label
+          className={classes.label}
+          htmlFor={`categoryOption${index}`}
         >
           {item?.name}
         </label>
@@ -69,26 +75,35 @@ export default (props: any) => {
   })
 
   return (
-    <form className={classes.CatalogueOptions}
-          onSubmit={(e: any) => {findMatchingItems(e)}}
+    <form
+      className={classes.CatalogueOptions}
+      onSubmit={(e: any) => {findMatchingItems(e)}}
     >
       <div className={classes.input}>
-        <label htmlFor="optionsInput" className={classes.input_icon}>
-          <img src={require('../../images/icons/search (2).svg')} alt=""/>
+        <label
+          htmlFor="optionsInput"
+          className={classes.input_icon}
+        >
+          <img
+            src={require('../../images/icons/search (2).svg')}
+            alt=""
+          />
         </label>
-        <input type="text" 
-               className={classes.input_field}
-               id="optionsInput"
-               placeholder="Поиск"
+        <input
+          type="text" 
+          className={classes.input_field}
+          id="optionsInput"
+          placeholder="Поиск"
         />
       </div>
       <h3 className={classes.subtitle}>Стоимость</h3>
       <div className={classes.price}>
-        <input type="text"
-               placeholder={'0'}
-               className={classes.price_input}
-               value={currentFilters.minPrice}
-               onChange={(e) => {
+        <input
+          type="text"
+          placeholder="0"
+          className={classes.price_input}
+          value={currentFilters.minPrice}
+          onChange={(e) => {
                  !e.target.value
                   ? setCurrentFilters({
                      ...currentFilters,
@@ -100,14 +115,18 @@ export default (props: any) => {
                       ...currentFilters,
                       minPrice: Number(e.target.value),
                     });
-               }}
+          }}
         />
-        <img src={require('../../images/icons/dash.svg')} alt=""/>
-        <input type="text"
-               placeholder={String(catalogueMaxPrice)}
-               className={classes.price_input}
-               value={currentFilters.maxPrice ? String(currentFilters.maxPrice) : ''}
-               onChange={(e) => {
+        <img
+          src={require('../../images/icons/dash.svg')}
+          alt=""
+        />
+        <input
+          type="text"
+          placeholder={String(catalogueMaxPrice)}
+          className={classes.price_input}
+          value={currentFilters.maxPrice ? String(currentFilters.maxPrice) : ''}
+          onChange={(e) => {
                  !e.target.value
                    ? setCurrentFilters({
                      ...currentFilters,
@@ -118,13 +137,18 @@ export default (props: any) => {
                      ...currentFilters,
                      maxPrice: Number(e.target.value),
                    });
-               }}
+          }}
         />
       </div>
       <ul className={classes.list}>
         {itemsList}
       </ul>
-      <button className={classes.submit} type="submit">Поиск</button>
+      <button
+        className={classes.submit}
+        type="submit"
+      >Поиск</button>
     </form>
   )
-};
+});
+
+export { CatalogueOptions };

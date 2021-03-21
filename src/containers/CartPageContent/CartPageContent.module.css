@@ -5,6 +5,14 @@
   padding: 24px 0;
 }
 
+.link {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: underline;
+}
+
 .holder {
   display: flex;
   justify-content: space-around;
@@ -118,4 +126,19 @@
   justify-content: center;
   align-items: center;
   margin: 25vh auto;
+}
+
+@media screen and (max-width: 769px) {
+  .holder {
+    flex-direction: column;
+  }
+
+  .list {
+    width: 100%;
+  }
+
+  .column {
+    width: 100%;
+    align-items: center;
+  }
 }

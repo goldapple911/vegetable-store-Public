@@ -1,5 +1,5 @@
 import React from 'react';
-import {ContentPromoItems} from '../../components';
+import { ContentPromoItems } from '../../components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import 'swiper/swiper.scss';
@@ -13,7 +13,7 @@ export default (props: any) => {
   return (
     <Swiper>
       <SwiperSlide>
-        <ContentPromoItems />
+        <ContentPromoItems/>
       </SwiperSlide>
     </Swiper>
   );

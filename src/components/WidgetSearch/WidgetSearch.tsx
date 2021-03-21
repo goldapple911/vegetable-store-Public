@@ -1,11 +1,13 @@
-import React, {useContext, useState} from 'react';
+import React, { useState } from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { mainPageStore } from '../../store';
+
 import classes from './WidgetSearch.module.css'
-import PagesContext from "../../pages/PagesContext";
 
-export default () => {
+const WidgetSearch = observer(() => {
 
- const searchContext = useContext(PagesContext);
- const currentShops = searchContext?.currentShops;
+ const currentShops = toJS(mainPageStore).currentShops;
 
  const [filteredShops, setFilteredShops] = useState(['']);
  const [selectedShop, setSelectedShop] = useState('');
@@ -24,21 +26,26 @@ export default () => {
    <div className={classes.WidgetSearch}>
      <h2 className={classes.title}>Найди нас <br/> в своем городе</h2>
      <div className={classes.search_container}>
-       <label htmlFor="search" className={classes.search_icon}></label>
-       <input id={'search'}
-              type="text"
-              className={classes.input}
-              value={selectedShop}
-              placeholder={"Введите город"}
-              onChange={(e) => {
+       <label
+         htmlFor="search"
+         className={classes.search_icon}
+       />
+       <input
+         id="search"
+         type="text"
+         className={classes.input}
+         value={selectedShop}
+         placeholder="Введите город"
+         onChange={(e) => {
                 handleSelectShop(e)
-              }}
+         }}
        />
      </div>
      <ul className={classes.list}>
-       { filteredShops[0] && filteredShops?.map((item, index) =>
-         <li key={index}
-             className={classes.item}
+       {filteredShops[0] && filteredShops?.map((item, index) =>
+         <li
+           key={index}
+           className={classes.item}
          >
            {item}
          </li>
@@ -46,4 +53,6 @@ export default () => {
      </ul>
    </div>
   )
-}
+});
+
+export { WidgetSearch };

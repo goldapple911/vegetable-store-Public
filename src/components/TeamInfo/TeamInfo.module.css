@@ -59,3 +59,18 @@
   bottom: -394px;
   left: -645px;
 }
+
+.container {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+@media screen and (max-width: 380px) {
+  .circle_left {
+    display: none;
+  }
+
+  .circle_right {
+    display: none;
+  }
+}

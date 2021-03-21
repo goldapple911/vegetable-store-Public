@@ -1,7 +1,7 @@
 .MainPageContent {
   background-color: #FFFFFF;
   background: url('../../images/backgrounds/main_page_bg.jpg') repeat center/contain;
-  padding-top: 55px;
+  padding-top: 80px;
 }
 
 .generator_container {
@@ -25,4 +25,40 @@
 .holder {
   display: flex;
   justify-content: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 47px;
+  color: #1B1B1B;
+}
+
+@media screen and (max-width: 769px) {
+  .generator_container {
+    padding: 0;
+    height: 370px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .MainPageContent {
+    padding: 0;
+    position: relative;
+    background: #FFFFFF;
+  }
+
+  .title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .generator_container {
+    position: absolute;
+    height: 240px;
+    width: 100%;
+    top: 180px;
+    left: 0;
+    border-radius: 0;
+  }
 }

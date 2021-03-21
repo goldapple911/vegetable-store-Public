@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
-import classes from "./Footer.module.css";
-import {Link} from "react-router-dom";
-import PagesContext from "../../pages/PagesContext";
+import React, { useContext } from 'react';
+import classes from './Footer.module.css';
+import { Link } from 'react-router-dom';
+import PagesContext from '../../pages/PagesContext';
 
 export default () => {
 
@@ -18,11 +18,13 @@ export default () => {
             <ul className={classes.list}>
               {currentPages?.map((page, index) => {
                 return (
-                  <Link to={page.href}
-                        className={classes.link}
-                        key={index}
+                  <Link
+                    to={page.href}
+                    className={classes.link}
+                    key={index}
                   >
-                    <li className={classes.text}
+                    <li
+                      className={classes.text}
                     >
                       {page.name}
                     </li>
@@ -30,14 +32,25 @@ export default () => {
                 )
               })}
             </ul>
-
           </nav>
           <div className={classes.social}>
-            <a href="#" className={classes.social_link}>
-              <img src={require('../../images/icons/vk.png')} alt=""/>
+            <a
+              href="https://vk.com/domsolnce"
+              className={classes.social_link}
+            >
+              <img
+                src={require('../../images/icons/vk.png')}
+                alt=""
+              />
             </a>
-            <a href="#" className={classes.social_link}>
-              <img src={require('../../images/icons/instagram.png')} alt=""/>
+            <a
+              href="https://www.instagram.com/dom_solnce/?igshid=131xtkarj7d1d"
+              className={classes.social_link}
+            >
+              <img
+                src={require('../../images/icons/instagram.png')}
+                alt=""
+              />
             </a>
           </div>
           <div className={classes.text}>

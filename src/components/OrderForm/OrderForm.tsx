@@ -1,15 +1,18 @@
-import React, {ChangeEvent, useContext, useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import cn from 'classnames';
+import { cartStore } from '../../store';
+
 import classes from './OrderForm.module.css';
-import PagesContext from "../../pages/PagesContext";
-import cn from "classnames";
-import {compact} from "lodash";
 
-export default (props: any) => {
+const OrderForm = observer((props: any) => {
+  const {
+    onOrderSend
+  } = props;
 
-  const cartContext = useContext(PagesContext);
-
-  const cartItems = cartContext?.cartItems;
-  const totalCost = cartContext?.totalCost;
+  const cartItems = toJS(cartStore).cartItems;
+  const totalCost = toJS(cartStore).totalCost;
 
   interface dataField {
     value: string,
@@ -21,6 +24,11 @@ export default (props: any) => {
     fullName: {
       value: '',
       placeholder: 'Ф.И.О',
+      required: true,
+    },
+    country: {
+      value: '',
+      placeholder: 'Страна',
       required: true,
     },
     cityName: {
@@ -60,7 +68,7 @@ export default (props: any) => {
     },
     email: {
       value: '',
-      placeholder: 'Эмэйл',
+      placeholder: 'E-mail',
       required: true,
     },
   }
@@ -70,7 +78,7 @@ export default (props: any) => {
   const [orderStatus, setOrderStatus] = useState('');
 
   const changeOrderInfo = (e: any) => {
-    const newOrderInfo = {...orderInfo};
+    const newOrderInfo = { ...orderInfo };
     newOrderInfo[e?.target?.dataset?.name].value = e?.target?.value;
     setOrderInfo(newOrderInfo);
   }
@@ -89,41 +97,50 @@ export default (props: any) => {
   
   const checkData = (e: any) => {
     e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
-    xhr.open(form.method, form.action);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        form.reset();
-        setOrderInfo(initialOrderInfo)
-        setOrderStatus("SUCCESS");
-      } else {
-        setOrderStatus("ERROR");
-      }
-    };
-    xhr.send(data);
+
+    new Promise(((resolve, reject) => {
+      const form = e.target;
+      const data = new FormData(form);
+      const xhr = new XMLHttpRequest();
+      xhr.open(form.method, form.action);
+      xhr.onload = () => resolve(xhr.responseText);
+      xhr.onerror = () => reject(xhr.statusText);
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState !== XMLHttpRequest.DONE) return;
+        if (xhr.status === 200) {
+          form.reset();
+          setOrderInfo(initialOrderInfo)
+          setOrderStatus('SUCCESS');
+        } else {
+          setOrderStatus('ERROR');
+        }
+      };
+      xhr.send(data);
+    })).then(() => {
+      onOrderSend();
+    })
   }
 
   return (
-    <form className={classes.OrderForm}
-          onSubmit={(e: any) => checkData(e)}
-          action="https://formspree.io/f/xaylkanp"
-          method="POST"
+    <form
+      className={classes.OrderForm}
+      onSubmit={(e: any) => checkData(e)}
+      action="https://formspree.io/f/xaylkanp"
+      method="POST"
     >
       <h2 className={classes.title}>Куда отправлять?</h2>
       <div className={classes.holder}>
         {Object.keys(orderInfo).map((field: string, index: number) => {
           return (
-            <input className={cn({[classes.input]: true, [classes.input_filled]: orderInfo[field].value})}
-                   key={index}
-                   data-name={field}
-                   value={orderInfo[field].value}
-                   placeholder={orderInfo[field].placeholder}
-                   onChange={(e: any) => changeOrderInfo(e)}
-                   name={orderInfo[field].placeholder}
+            <input
+              className={cn({ [classes.input]: true, [classes.input_filled]: orderInfo[field].value })}
+              key={index}
+              data-name={field}
+              value={orderInfo[field].value}
+              placeholder={orderInfo[field].placeholder}
+              onChange={(e: any) => changeOrderInfo(e)}
+              name={orderInfo[field].placeholder}
             />
           )
         })}
@@ -131,24 +148,28 @@ export default (props: any) => {
       {cartItems?.map((item, index) => {
         const cartItem = item.item;
         return (
-          <input type="hidden"
-                 key={index}
-                 name={`Поз№ ${index + 1}`}
-                 value={`${cartItem.item.name} ${cartItem.selectedVolume.volume} ${item.count} шт.`}
+          <input
+            type="hidden"
+            key={index}
+            name={`Поз№ ${index + 1}`}
+            value={`${cartItem.item.name} ${cartItem.selectedVolume.volume} ${item.count} шт.`}
           />
         )
       })}
-      <input type="hidden"
-             name="Стоимость заказа"
-             value={`${totalCost} руб.`}
+      <input
+        type="hidden"
+        name="Стоимость заказа"
+        value={`${totalCost} руб.`}
       />
-      <button type="submit"
-              className={classes.submit}
-              disabled={submitIsDisabled}
+      <button
+        type="submit"
+        className={classes.submit}
+        disabled={submitIsDisabled}
       >
         Продолжить
       </button>
-      {orderStatus === "SUCCESS" && <p className={classes.status}>Ваш заказ успешно принят</p>}
     </form>
   );
-};
+});
+
+export { OrderForm };

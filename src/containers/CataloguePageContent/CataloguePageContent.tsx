@@ -1,54 +1,53 @@
-import React, {useContext, useEffect, useState} from 'react';
-import classes from './CataloguePageContent.module.css';
+import React from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { catalogueStore } from '../../store';
 import {
-  Navigation,
-  CartIcon,
   CatalogueOptions,
   LinkButton,
   CatalogueItems,
   CatalogueMenu,
   ActiveItemModal,
-} from "../../components"
+  Header,
+} from '../../components'
 
-import PagesContext from '../../pages/PagesContext';
+import classes from './CataloguePageContent.module.css';
 
-export default () => {
+const CataloguePageContent = observer(() => {
 
-  const catalogueContext = useContext(PagesContext);
-
-  const selectedPage = catalogueContext?.selectedCataloguePage;
-  const catalogue: any = catalogueContext?.catalogue;
-  const activeItem = catalogueContext?.activeItem;
+  const selectedPage = toJS(catalogueStore).selectedCataloguePage;
+  const catalogue: any = toJS(catalogueStore).catalogue;
+  const activeItem = toJS(catalogueStore).activeItem;
+  const filteredCatalogueItems = toJS(catalogueStore).filteredCatalogueItems;
 
   let currentItems;
 
   if (catalogue && selectedPage) {
     currentItems = catalogue[selectedPage];
   }
-  if (catalogueContext?.filteredCatalogueItems.length) {
-    currentItems = catalogueContext?.filteredCatalogueItems;
+  if (filteredCatalogueItems.length) {
+    currentItems = filteredCatalogueItems;
   }
 
   return (
     <main className={classes.CataloguePageContent}>
-      <div className={"container"}>
-        <div className={classes.header}>
-          <Navigation/>
-          <CartIcon/>
-        </div>
+      <div className="container">
+        <Header/>
         <div className={classes.holder}>
           <div className={classes.column}>
             <CatalogueOptions/>
-            <LinkButton href="/cart"
-                        text="Перейти в корзину"
-                        class="link_cart"
+            <LinkButton
+              href="/cart"
+              text="Перейти в корзину"
+              class="link_cart"
             />
             {currentItems &&
-              <button className={classes.button}
-                      onClick={() => catalogueContext?.selectCataloguePage("")}>
+              <button
+                className={classes.button}
+                onClick={() => catalogueStore.selectCataloguePage('')}
+              >
                 Вернуться в каталог
-              </button>
-            }
+              </button>}
           </div>
           <div className={classes.column}>
             <div className={classes.banner}/>
@@ -61,8 +60,11 @@ export default () => {
         </div>
       </div>
       {
+        //@ts-ignore
         activeItem?.item?.name && <ActiveItemModal/>
       }
     </main>
   )
-};
+});
+
+export { CataloguePageContent }

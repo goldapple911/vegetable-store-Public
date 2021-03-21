@@ -1,17 +1,19 @@
-import React, {useContext, useEffect} from 'react';
-import CataloguePageContent from "../../containers/CataloguePageContent/CataloguePageContent";
-import Footer from '../../components/Footer/Footer';
-import PagesContext from "../PagesContext";
-import PagePreloader from "../../components/PagePreloader/PagePreloader";
+import React, { useEffect } from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { catalogueStore } from '../../store';
+import { CataloguePageContent } from "../../containers";
+import {
+  Footer,
+  PagePreloader,
+} from "../../components";
 
-
-export default () => {
-  const context = useContext(PagesContext);
-  const catalogueLoading = context?.catalogueLoading;
+const CataloguePage = observer(() => {
+  const catalogueLoading = toJS(catalogueStore).catalogueLoading;
 
    useEffect( ()  => {
-     context?.getCatalogue()
-  }, [])
+     catalogueStore.loadCatalogue()
+  }, []);
 
   return (
     <>
@@ -20,8 +22,9 @@ export default () => {
         : <>
           <CataloguePageContent/>
           <Footer/>
-        </>
-      }
+        </>}
     </>
   );
-};
+});
+
+export { CataloguePage };

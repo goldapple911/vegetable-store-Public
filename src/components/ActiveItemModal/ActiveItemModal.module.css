@@ -184,3 +184,26 @@
 .text_block text:nth-child(1) {
     margin-bottom: 20%;
 }
+
+@media screen and (max-width: 380px) {
+    .window {
+        width: 343px;
+    }
+
+    .cover {
+        width: 100%;
+        margin-bottom: 26px;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .holder:nth-last-child(1) {
+        flex-direction: column;
+    }
+
+    .text_block {
+        display: none;
+    }
+}

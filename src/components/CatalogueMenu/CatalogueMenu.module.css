@@ -38,3 +38,30 @@
     color: #1B1B1B;
 }
 
+@media screen and (max-width: 769px) {
+    .item {
+        width: 205px !important;
+        height: 205px !important;
+    }
+    .item:nth-child(2), .item:nth-child(3n) {
+        width: 245px !important;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .item {
+        width: 164px !important;
+        height: 164px !important;
+    }
+    .item:nth-child(2) {
+        width: 164px !important;
+    }
+    .item:nth-child(3n) {
+        width: 100% !important;
+    }
+    .title {
+        font-size: 14px;
+        line-height: 19px;
+    }
+}
+

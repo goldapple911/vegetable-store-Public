@@ -39,3 +39,19 @@
     color: #252525;
     display: inline-block;
 }
+
+@media screen and (max-width: 769px) {
+    .link_header {
+        width: 292px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .link_header {
+        width: 100% !important;
+    }
+
+    .link_content {
+        width: 100% !important;
+    }
+}

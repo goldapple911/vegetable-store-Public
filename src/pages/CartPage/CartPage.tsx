@@ -1,15 +1,10 @@
 import React from 'react';
-import Footer from '../../components/Footer/Footer';
-import CartPageContent from '../../containers/CartPageContent/CartPageContent'
+import { Footer } from "../../components";
+import { CartPageContent } from "../../containers";
 
-export default () => {
-
-  return (
-    <>
-      <CartPageContent/>
-      <Footer/>
-    </>
-  );
-};
-
-
+export default () => (
+  <>
+    <CartPageContent />
+    <Footer />
+  </>
+);

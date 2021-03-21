@@ -1,17 +1,23 @@
-import React, {useContext} from 'react';
-import classes from "./CatalogueMenu.module.css";
-import PagesContext from '../../pages/PagesContext';
+import React from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
+import { catalogueStore } from '../../store';
+import { CatalogueCategory } from '../../interfaces';
 
-export default () => {
-  const catalogueContext = useContext(PagesContext);
-  const categories = catalogueContext?.catalogueCategories;
+import classes from './CatalogueMenu.module.css';
 
-  const categoriesItems = categories?.map((item, id) => {
+const CatalogueMenu = observer(() => {
+  const categories: CatalogueCategory[] = toJS(catalogueStore).catalogueCategories;
+
+  console.log(categories)
+
+  const categoriesItems = categories?.map((item: CatalogueCategory, id: number) => {
     return (
-      <li key={id}
-          className={classes.item}
-          onClick={() => {catalogueContext?.selectCataloguePage(item.id); console.log(item.id)}}
-          style={{backgroundImage: `url(${item.cover})`}}
+      <li
+        key={id}
+        className={classes.item}
+        onClick={() => catalogueStore.selectCataloguePage(item.id)}
+        style={{ backgroundImage: `url(${item.cover})` }}
       >
         <div className={classes.title}>
           {item.name}
@@ -25,4 +31,6 @@ export default () => {
       {categoriesItems}
     </ul>
   );
-};
+});
+
+export { CatalogueMenu };

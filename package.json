@@ -11,6 +11,8 @@
     "@types/react-router-dom": "^5.1.6",
     "classnames": "^2.2.6",
     "lodash": "^4.17.20",
+    "mobx": "^6.1.8",
+    "mobx-react": "^7.1.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -23,7 +25,8 @@
     "start": "set PORT=3002 &&react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "node_modules/.bin/eslint src/ --fix --ext .js,.jsx,.tsx,.ts ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,5 +42,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.22.0"
   }
 }

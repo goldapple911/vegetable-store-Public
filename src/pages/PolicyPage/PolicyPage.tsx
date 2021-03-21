@@ -1,14 +1,10 @@
 import React from 'react';
-import {Footer} from '../../components';
-import PolicyPageContent from "../../containers/PolicyPageContent/PolicyPageContent";
+import { Footer } from '../../components';
+import PolicyPageContent from '../../containers/PolicyPageContent/PolicyPageContent';
 
-
-export default () => {
-
-  return (
-    <>
-      <PolicyPageContent/>
-      <Footer/>
-    </>
-  );
-};
+export default () => (
+  <>
+    <PolicyPageContent />
+    <Footer />
+  </>
+);
