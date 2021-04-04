@@ -57,3 +57,26 @@ export interface CartItem {
   count: number,
 }
 
+export enum OrderInfoProperty {
+  fullName = 'fullName',
+  country = 'country',
+  cityName = 'cityName',
+  streetName = 'streetName',
+  homeNumber = 'homeNumber',
+  sectionId = 'sectionId',
+  flatNumber = 'flatNumber',
+  postalCode = 'postalCode',
+  phoneNumber = 'phoneNumber',
+  email = 'email',
+}
+
+export type DataField = {
+  value: string,
+  placeholder: string,
+  required: boolean,
+}
+
+export type OrderInfo = {
+  [key in OrderInfoProperty]?: DataField;
+}
+

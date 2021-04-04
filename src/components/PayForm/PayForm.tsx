@@ -1,10 +1,21 @@
 import React from 'react';
+import { toJS } from 'mobx';
+import { observer } from 'mobx-react';
 import classes from './PayForm.module.css';
+import { cartStore } from '../../store';
+import {CartItem} from "../../interfaces";
 
-const PayForm = (props: any) => {
-  const {
-    totalCost
-  } = props;
+const PayForm = observer(() => {
+
+  const orderInfo = toJS(cartStore).orderInfo;
+  let orderFullAddress: string = '';
+  if (toJS(cartStore.sendToPVZ)) {
+    orderFullAddress =  toJS(cartStore).addressPVZ
+  } else {
+    orderFullAddress = `${orderInfo?.country?.value} ${orderInfo?.cityName?.value} 
+    ${orderInfo?.streetName?.value} ${orderInfo?.homeNumber?.value} ${orderInfo?.flatNumber?.value} 
+    ${orderInfo?.sectionId?.value} ${orderInfo?.postalCode?.value}`;
+  }
 
   return (
     <div className={classes.PayForm}>
@@ -23,6 +34,25 @@ const PayForm = (props: any) => {
         method="post"
         accept-charset="utf-8"
       >
+        {
+          toJS(cartStore).cartItems.map((item: CartItem) => {
+            return (
+              <div className={classes.product}>
+                <input type="hidden" name="text" value={item.item.item.name}/>
+                <input type="hidden" name="price" value={item.item.selectedVolume.price1}/>
+                <input type="hidden" name="quantity" value={item.count}/>
+                <input type="hidden" name="paymentSubjectType" value="commodity"/>
+                <input type="hidden" name="paymentMethodType" value="full_prepayment"/>
+              </div>
+            )
+          })
+        }
+        <div className={classes.info}>
+          <input name="cps_email" type="hidden" value={orderInfo?.email?.value}/>
+          <input name="cps_phone" type="hidden" value={orderInfo?.phoneNumber?.value}/>
+          <input name="custName" type="hidden" value={orderInfo?.fullName?.value}/>
+          <input name="custAddr" type="hidden" value={orderFullAddress}/>
+        </div>
         <div className="ym-payment-btn-block">
           <div className="ym-input-icon-rub ym-display-none">
             <input
@@ -31,14 +61,14 @@ const PayForm = (props: any) => {
               className="ym-input ym-sum-input ym-required-input"
               type="number"
               step="any"
-              value={totalCost}
+              value={toJS(cartStore).totalCost}
             />
           </div>
           <button
             data-text="Заплатить"
             className={classes.button}
           >
-            Оплатить {totalCost} ₽
+            Оплатить {toJS(cartStore).totalCost} ₽
           </button>
         </div>
         <input
@@ -50,6 +80,6 @@ const PayForm = (props: any) => {
       <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js"></script>
     </div>
   )
-}
+});
 
-export default PayForm;
+export { PayForm };

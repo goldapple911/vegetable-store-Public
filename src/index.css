@@ -23,6 +23,10 @@ code {
   margin-right: auto;
 }
 
+.CDEK-widget__delivery-type__item, .CDEK-widget__delivery-type__title {
+  display: none;
+}
+
 @media screen and (max-width: 769px) {
   .container {
     width: 728px;
