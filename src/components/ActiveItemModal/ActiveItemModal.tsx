@@ -75,6 +75,7 @@ const ActiveItemModal = observer(() => {
                   onClick={() => activeItem && cartStore.removeItemFromCart(activeItem, 1)}
                 >
                   <img
+                    className={classes.minus}
                     src={require('../../images/icons/minus_pink.svg')}
                     alt=""
                   />

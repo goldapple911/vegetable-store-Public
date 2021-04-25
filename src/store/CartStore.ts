@@ -7,8 +7,10 @@ class CartStore {
   totalCost: number = 0;
   packAsPresent: boolean = false;
   orderInfo: OrderInfo | null = null;
+  pickUpEkb: boolean = false;
   sendToPVZ: boolean = false;
   addressPVZ: string = '';
+  addressEkb: string = '';
 
   constructor() {
     makeAutoObservable(this);
@@ -93,6 +95,11 @@ class CartStore {
   }
 
   @action
+  selectPickUpEkb = (newStatus: boolean) => {
+    this.pickUpEkb = newStatus;
+  }
+
+  @action
   selectSendToPVZ = (newStatus: boolean) => {
     this.sendToPVZ = newStatus;
   }
@@ -100,6 +107,11 @@ class CartStore {
   @action
   updateAddressPVZ = (addressPVZ: string) => {
     this.addressPVZ = addressPVZ;
+  }
+
+  @action
+  updateAddressEkb = (addressEkb: string) => {
+    this.addressEkb = addressEkb;
   }
 }
 

@@ -71,7 +71,14 @@ const initialOrderInfoCDEK: OrderInfo = {
   },
 };
 
+const ekbAddressOptions = [
+  { value: '1', label: 'Студия йоги «Делай йогу», Ленина, 53' },
+  { value: '2', label: 'Кофейня «May be cup», Тургенева,15' },
+  { value: '3', label: 'Пекарня «GoBakery”, Попова,2/Вайнера,12' }
+];
+
 export {
   initialOrderInfoWithAddress,
   initialOrderInfoCDEK,
+  ekbAddressOptions,
 }

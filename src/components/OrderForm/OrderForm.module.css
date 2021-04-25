@@ -160,11 +160,16 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-.cdek {
+.toggle {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 16px;
+}
+
+.select {
+    width: 100%;
     margin-bottom: 16px;
 }
 

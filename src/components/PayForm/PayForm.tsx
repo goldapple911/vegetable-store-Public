@@ -11,11 +11,22 @@ const PayForm = observer(() => {
   let orderFullAddress: string = '';
   if (toJS(cartStore.sendToPVZ)) {
     orderFullAddress =  toJS(cartStore).addressPVZ
+  } else if (toJS(cartStore.pickUpEkb)) {
+    orderFullAddress = toJS(cartStore).addressEkb
   } else {
     orderFullAddress = `${orderInfo?.country?.value} ${orderInfo?.cityName?.value} 
     ${orderInfo?.streetName?.value} ${orderInfo?.homeNumber?.value} ${orderInfo?.flatNumber?.value} 
     ${orderInfo?.sectionId?.value} ${orderInfo?.postalCode?.value}`;
   }
+
+  const formOrderList = () => {
+    let orderListComment = '';
+    toJS(cartStore).cartItems.map((item: CartItem, index: number) => {
+      const orderString = `Поз№${index + 1} ${item.item.item.name} ${item.item.selectedVolume.volume} ${item.count} шт. `
+      orderListComment += orderString;
+    });
+    return orderListComment;
+  };
 
   return (
     <div className={classes.PayForm}>
@@ -32,26 +43,19 @@ const PayForm = observer(() => {
         className="yoomoney-payment-form"
         action="https://yookassa.ru/integration/simplepay/payment"
         method="post"
-        accept-charset="utf-8"
+        acceptCharset="utf-8"
       >
-        {
-          toJS(cartStore).cartItems.map((item: CartItem) => {
-            return (
-              <div className={classes.product}>
-                <input type="hidden" name="text" value={item.item.item.name}/>
-                <input type="hidden" name="price" value={item.item.selectedVolume.price1}/>
-                <input type="hidden" name="quantity" value={item.count}/>
-                <input type="hidden" name="paymentSubjectType" value="commodity"/>
-                <input type="hidden" name="paymentMethodType" value="full_prepayment"/>
-              </div>
-            )
-          })
-        }
         <div className={classes.info}>
           <input name="cps_email" type="hidden" value={orderInfo?.email?.value}/>
           <input name="cps_phone" type="hidden" value={orderInfo?.phoneNumber?.value}/>
           <input name="custName" type="hidden" value={orderInfo?.fullName?.value}/>
           <input name="custAddr" type="hidden" value={orderFullAddress}/>
+          <textarea
+            className="ym-textarea ym-display-none"
+            name="orderDetails"
+            placeholder="Комментарий"
+            value={formOrderList()}
+          />
         </div>
         <div className="ym-payment-btn-block">
           <div className="ym-input-icon-rub ym-display-none">
@@ -62,6 +66,7 @@ const PayForm = observer(() => {
               type="number"
               step="any"
               value={toJS(cartStore).totalCost}
+              onChange={() => {}}
             />
           </div>
           <button
@@ -77,7 +82,6 @@ const PayForm = observer(() => {
           value="775671"
         />
       </form>
-      <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js"></script>
     </div>
   )
 });

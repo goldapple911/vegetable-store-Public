@@ -4,11 +4,13 @@ import { observer } from 'mobx-react';
 import cn from 'classnames';
 import { cartStore } from '../../store';
 import { OrderInfoProperty } from '../../interfaces';
+import { set } from 'lodash';
+import Select from 'react-select';
 import {
   initialOrderInfoWithAddress,
   initialOrderInfoCDEK,
+  ekbAddressOptions,
 } from "./helpers/mockData";
-import { set } from 'lodash';
 
 import classes from './OrderForm.module.css';
 
@@ -24,12 +26,12 @@ const OrderForm = observer((props: any) => {
   const [submitIsDisabled, setSubmitIsDisabled] = useState(true);
 
   useEffect(() => {
-    if (toJS(cartStore).sendToPVZ) {
+    if (toJS(cartStore).sendToPVZ || toJS(cartStore).pickUpEkb) {
       setOrderInfo(initialOrderInfoCDEK)
     } else {
       setOrderInfo(initialOrderInfoWithAddress)
     }
-  }, [toJS(cartStore).sendToPVZ]);
+  }, [toJS(cartStore).sendToPVZ, toJS(cartStore).pickUpEkb]);
 
   useEffect(() => {
     checkDataFilling()
@@ -66,19 +68,46 @@ const OrderForm = observer((props: any) => {
       method="POST"
     >
       <h2 className={classes.title}>Куда отправлять?</h2>
-      <div className={classes.cdek}>
+      <div className={classes.toggle}>
         <label className={classes.switch}>
           <input
             type="checkbox"
-            onChange={(event) =>
-              cartStore.selectSendToPVZ(event.target.checked)
-            }
+            checked={toJS(cartStore).pickUpEkb}
+            onChange={(event) => {
+              cartStore.selectPickUpEkb(event.target.checked);
+              cartStore.selectSendToPVZ(false);
+            }}
+          />
+          <span className={classes.slider}></span>
+        </label>
+        Заберу в пункте выдачи Екатеринбург
+      </div>
+      <div className={classes.toggle}>
+        <label className={classes.switch}>
+          <input
+            type="checkbox"
+            checked={toJS(cartStore).sendToPVZ}
+            onChange={(event) => {
+              cartStore.selectSendToPVZ(event.target.checked);
+              cartStore.selectPickUpEkb(false);
+            }}
           />
           <span className={classes.slider}></span>
         </label>
         Заберу в пункте СДЭК
       </div>
       <div className={classes.holder}>
+        {
+          toJS(cartStore).pickUpEkb &&
+          <Select
+            className={classes.select}
+            placeholder="Выберите пункт самовывоза"
+            options={ekbAddressOptions}
+            onChange={(options) =>
+              cartStore.updateAddressEkb(options?.label || '')
+            }
+          />
+        }
         {
           // @ts-ignore
           Object.keys(orderInfo).map((field: OrderInfoProperty, index: number) => {
@@ -87,7 +116,7 @@ const OrderForm = observer((props: any) => {
                 className={cn({
                   [classes.input]: true,
                   [classes.input_filled]: orderInfo[field]?.value,
-                  [classes.input_fullsize]: toJS(cartStore).sendToPVZ,
+                  [classes.input_fullsize]: toJS(cartStore).sendToPVZ || toJS(cartStore).pickUpEkb,
                 })}
                 key={index}
                 value={orderInfo[field]?.value}
