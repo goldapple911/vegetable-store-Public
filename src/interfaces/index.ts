@@ -23,6 +23,7 @@ export interface CatalogueItem {
   type: string,
   description: string,
   composition: string,
+  isAvailable: boolean
 }
 
 export interface CatalogueCategory {
