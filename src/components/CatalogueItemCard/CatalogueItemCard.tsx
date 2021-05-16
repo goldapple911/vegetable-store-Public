@@ -51,46 +51,62 @@ const CatalogueItemCard = observer((props: any) => {
         className={classes.cover}
         style={{ backgroundImage: `url(${item.cover})` }}
       >
-        <img
-          src={require('../../images/icons/open.svg')}
-          alt=""
-          className={classes.open}
-          onClick={() => catalogueStore.selectActiveItem(item)}
-        />
+        {
+          item.isAvailable && (
+            <img
+              src={require('../../images/icons/open.svg')}
+              alt=""
+              className={classes.open}
+              onClick={() => catalogueStore.selectActiveItem(item)}
+            />
+          )
+        }
       </div>
       <div className={classes.options}>
         <div className={classes.holder}>
           <span className={classes.type}>{item.type}</span>
-          <div className={classes.count}>
-            <button
-              className={classes.counter}
-              onClick={() => cartStore.removeItemFromCart({ item, selectedVolume }, 1)}
-            >
-              <img
-                src={require('../../images/icons/minus.svg')}
-                alt=""
-              />
-            </button>
-            {currentCount || 0}
-            <button
-              className={classes.counter}
-              onClick={() => cartStore.addItemToCart({ item, selectedVolume })}
-            >
-              <img
-                src={require('../../images/icons/plus.svg')}
-                alt=""
-              />
-            </button>
-          </div>
+          {
+            item.isAvailable && (
+              <div className={classes.count}>
+                <button
+                  className={classes.counter}
+                  onClick={() => cartStore.removeItemFromCart({ item, selectedVolume }, 1)}
+                >
+                  <img
+                    src={require('../../images/icons/minus.svg')}
+                    alt=""
+                  />
+                </button>
+                {currentCount || 0}
+                <button
+                  className={classes.counter}
+                  onClick={() => cartStore.addItemToCart({ item, selectedVolume })}
+                >
+                  <img
+                    src={require('../../images/icons/plus.svg')}
+                    alt=""
+                  />
+                </button>
+              </div>
+            )
+          }
         </div>
         <h2 className={classes.title}>{item.name}</h2>
-        <ul className={classes.list}>
-          {item.volumes.length && volumes}
-        </ul>
-        <div className={classes.column}>
-          <h2 className={classes.title}>{selectedVolume.price1} руб</h2>
-          <span className={classes.type}>-10% за 1 шт при покупке 3 шт</span>
-        </div>
+        {
+          item.isAvailable ? (
+            <>
+              <ul className={classes.list}>
+                {item.volumes.length && volumes}
+              </ul>
+              <div className={classes.column}>
+                <h2 className={classes.title}>{selectedVolume.price1} руб</h2>
+                <span className={classes.type}>-10% за 1 шт при покупке 3 шт</span>
+              </div>
+            </>
+          ) : (
+            <span className={classes.type}>Временно нет в наличии</span>
+          )
+        }
       </div>
     </li>
   );

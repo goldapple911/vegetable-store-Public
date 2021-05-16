@@ -159,6 +159,21 @@
     align-items: center;
     outline: none;
     cursor: pointer;
+    position: relative;
+}
+
+.plus {
+    position: absolute;
+    margin: -5px;
+    left: 50%;
+    top: 50%;
+}
+
+.minus {
+    position: absolute;
+    margin: -1px -4.5px;
+    left: 50%;
+    top: 50%;
 }
 
 .counter:nth-child(1) {

@@ -23,6 +23,31 @@ code {
   margin-right: auto;
 }
 
+.CDEK-widget__delivery-type__item, .CDEK-widget__delivery-type__title {
+  display: none;
+}
+
+.css-yk16xz-control {
+  border: none !important;
+  border-radius: 12px !important;
+  background: #FBFBFF !important;
+}
+
+.css-1wa3eu0-placeholder {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.css-g1d714-ValueContainer {
+  padding: 10px !important;
+}
+
+.css-1pahdxg-control {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
 @media screen and (max-width: 769px) {
   .container {
     width: 728px;

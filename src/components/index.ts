@@ -17,7 +17,7 @@ import { TeamInfo } from "./TeamInfo/TeamInfo";
 import { WidgetSearch } from "./WidgetSearch/WidgetSearch";
 import { OrderForm } from "./OrderForm/OrderForm";
 import { CartItemCard } from "./CartItemCard/CartItemCard";
-import PayForm from './PayForm/PayForm';
+import { PayForm } from "./PayForm/PayForm";
 import Header from './Header/Header';
 
 export {

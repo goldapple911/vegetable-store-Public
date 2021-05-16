@@ -1,11 +1,16 @@
 import { action, makeAutoObservable } from 'mobx';
-import { CartItem, ActiveItem } from '../interfaces';
-import {find, indexOf, isEqual} from "lodash";
+import { CartItem, ActiveItem, OrderInfo } from '../interfaces';
+import {find, indexOf, isEqual} from 'lodash';
 
 class CartStore {
   cartItems: CartItem[] = [];
   totalCost: number = 0;
   packAsPresent: boolean = false;
+  orderInfo: OrderInfo | null = null;
+  pickUpEkb: boolean = false;
+  sendToPVZ: boolean = false;
+  addressPVZ: string = '';
+  addressEkb: string = '';
 
   constructor() {
     makeAutoObservable(this);
@@ -82,6 +87,31 @@ class CartStore {
     })
     if (this.packAsPresent) totalCost += 300;
     this.totalCost = totalCost;
+  }
+
+  @action
+  saveOrderInfo = (newInfo: OrderInfo) => {
+    this.orderInfo = newInfo;
+  }
+
+  @action
+  selectPickUpEkb = (newStatus: boolean) => {
+    this.pickUpEkb = newStatus;
+  }
+
+  @action
+  selectSendToPVZ = (newStatus: boolean) => {
+    this.sendToPVZ = newStatus;
+  }
+
+  @action
+  updateAddressPVZ = (addressPVZ: string) => {
+    this.addressPVZ = addressPVZ;
+  }
+
+  @action
+  updateAddressEkb = (addressEkb: string) => {
+    this.addressEkb = addressEkb;
   }
 }
 

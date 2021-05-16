@@ -13,11 +13,13 @@
     "lodash": "^4.17.20",
     "mobx": "^6.1.8",
     "mobx-react": "^7.1.0",
+    "node": "^14.0.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-select": "^4.3.0",
     "swiper": "^6.2.0",
     "typescript": "^4.0.5"
   },
@@ -46,6 +48,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@types/react-select": "^4.0.15",
     "eslint": "^6.6.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.22.0"

@@ -1,3 +1,7 @@
+.CataloguePageContent {
+  padding-bottom: 142px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -15,9 +19,9 @@
 
 .holder {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 142px;
+  width: 100%;
 }
 
 .column {
@@ -125,7 +129,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25vh auto;
+  margin: 20vh auto;
+}
+
+.widget {
+  margin-top: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+.subtitle {
+  justify-content: center;
 }
 
 @media screen and (max-width: 769px) {

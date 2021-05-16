@@ -46,7 +46,7 @@ class CatalogueStore implements ICatalogueStore {
   }
 
   @action selectActiveItem = (item: CatalogueItem | null): void => {
-    if (item) {
+    if (item && item.isAvailable) {
       const newActiveItem: ActiveItem = {
         item: item,
         selectedVolume: item?.volumes[0],

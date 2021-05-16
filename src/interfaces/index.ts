@@ -23,6 +23,7 @@ export interface CatalogueItem {
   type: string,
   description: string,
   composition: string,
+  isAvailable: boolean
 }
 
 export interface CatalogueCategory {
@@ -55,5 +56,28 @@ export interface ItemsFilters {
 export interface CartItem {
   item: ActiveItem,
   count: number,
+}
+
+export enum OrderInfoProperty {
+  fullName = 'fullName',
+  country = 'country',
+  cityName = 'cityName',
+  streetName = 'streetName',
+  homeNumber = 'homeNumber',
+  sectionId = 'sectionId',
+  flatNumber = 'flatNumber',
+  postalCode = 'postalCode',
+  phoneNumber = 'phoneNumber',
+  email = 'email',
+}
+
+export type DataField = {
+  value: string,
+  placeholder: string,
+  required: boolean,
+}
+
+export type OrderInfo = {
+  [key in OrderInfoProperty]?: DataField;
 }
 
